@@ -1,12 +1,15 @@
 import React from "react";
 import renderer from "react-test-renderer";
+import { BrowserRouter as Router } from "react-router-dom";
 
-import { Header } from "./Header";
+import { Navbar } from './Navbar';
 
-describe("Header component", () => {
+describe("Navbar", () => {
   it("should render", () => {
     const tree = renderer.create(
-      <Header></Header>
+      <Router>
+        <Navbar/>
+      </Router>
     ).toJSON();
 
     expect(tree).toMatchSnapshot();

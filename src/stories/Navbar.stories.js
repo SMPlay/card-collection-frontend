@@ -4,13 +4,13 @@ import { ThemeProvider } from "react-jss";
 import { BrowserRouter as Router } from "react-router-dom";
 
 import { theme } from "../theme";
-import { Header } from "../components";
+import { Navbar } from "../components";
 
-storiesOf("Header", module).add("Default", () => {
+storiesOf("Navbar", module).add("Default", () => {
   return (
     <Router>
       <ThemeProvider theme={theme}>
-        <Header />
+        <Navbar />
       </ThemeProvider>
     </Router>
   );

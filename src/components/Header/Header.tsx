@@ -1,15 +1,12 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
 
-import { NavItem } from "./Nav-item";
+import { Navbar } from "../Navbar/Navbar";
 
 const useStyles = createUseStyles({
   header: {
     marginTop: 20,
   },
-  headerNav: {
-    display: "flex"
-  }
 });
 
 export const Header: React.FC = () => {
@@ -19,10 +16,7 @@ export const Header: React.FC = () => {
     <header className={styles.header}>
       <div className="container">
         <div className="row">
-          <nav className={styles.headerNav}>
-            <NavItem>Коллекции</NavItem>
-            <NavItem>Галерея</NavItem>
-          </nav>
+          <Navbar/>
         </div>
       </div>
     </header>
