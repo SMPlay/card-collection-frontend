@@ -2,7 +2,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { ThemeProvider } from "react-jss";
 
-import { HeaderItem } from "../components/Header-item";
+import { HeaderItem } from "../components/Header";
 import { theme } from "../theme";
 
 import "./index.css";

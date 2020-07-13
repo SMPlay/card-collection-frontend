@@ -3,7 +3,7 @@ import renderer from "react-test-renderer";
 import { ThemeProvider } from "react-jss";
 
 import { HeaderItem } from "./Header-item";
-import { theme } from "../theme";
+import { theme } from "../../theme";
 
 describe("Header item component", () => {
   it("should render component", () => {
