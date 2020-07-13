@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Header component should render component 1`] = `
-<header>
-  <nav />
-</header>
-`;
