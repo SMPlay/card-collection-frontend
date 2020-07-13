@@ -1,2 +1,2 @@
 export { Header } from "./Header";
-export { HeaderItem } from "./Header-item";
+export { NavItem } from "./Nav-item";

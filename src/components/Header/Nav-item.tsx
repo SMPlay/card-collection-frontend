@@ -2,15 +2,15 @@ import React from "react";
 import { createUseStyles, useTheme } from "react-jss";
 
 const useStyles = createUseStyles({
-  headerItem: {
+  navItem: {
     position: "relative",
     fontSize: 22,
     fontWeight: 600,
     maxWidth: 130,
     height: 27,
     padding: "0 10px",
-    color: ({theme}) => theme.colorPrimary,
-    background: "rgb(16, 118, 227)",
+    color: "rgb(255, 255, 255)",
+    background: ({theme}) => theme.colorPrimary,
     transform: "skew(-20deg)",
     cursor: "pointer",
     border: "1px solid rgb(18, 18, 18)",
@@ -33,7 +33,7 @@ const useStyles = createUseStyles({
       }
     }
   },
-  headerItemChild: {
+  navItemChild: {
     position: "relative",
     zIndex: 100,
     display: "flex",
@@ -43,13 +43,13 @@ const useStyles = createUseStyles({
   }
 });
 
-export const HeaderItem: React.FC = ({ children }) => {
+export const NavItem: React.FC = ({ children }) => {
   const theme = useTheme();
   const styles = useStyles({theme});
 
   return (
-    <div className={styles.headerItem}>
-      <span className={styles.headerItemChild}>{children}</span>
+    <div className={styles.navItem}>
+      <span className={styles.navItemChild}>{children}</span>
     </div>
   );
 }
