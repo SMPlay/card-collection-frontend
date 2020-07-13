@@ -2,3 +2,7 @@ body {
   font-family: "Roboto", sans-serif;
   margin-bottom: 0;
 }
+
+a {
+  text-decoration: none;
+}

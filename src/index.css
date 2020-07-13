@@ -1,5 +1,4 @@
 body {
-  background: rgb(245, 245, 220);
   margin: 0;
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -10,4 +9,8 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
+}
+
+a {
+  text-decoration: none;
 }
