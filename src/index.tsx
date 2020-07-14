@@ -1,14 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
-import ApolloClient from 'apollo-boost';
+import ApolloClient, { InMemoryCache } from 'apollo-boost';
+// import { ApolloClient } from 'apollo-client'
+import { createHttpLink } from 'apollo-link-http';
 import { ApolloProvider } from '@apollo/react-hooks';
 
 import App from './components/App';
 import './index.css';
 
 const client = new ApolloClient({
-  uri: "http://localhost:8080"
+  uri: "http://localhost:4001",
+  cache: new InMemoryCache(),
 });
 
 ReactDOM.render(
