@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {useLazyQuery, useMutation, useQuery} from "@apollo/react-hooks";
+import { useLazyQuery, useMutation } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
 
 const SIGNUP_USER = gql`
