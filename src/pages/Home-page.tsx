@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { useMutation, useQuery } from "@apollo/react-hooks";
+import {useLazyQuery, useMutation, useQuery} from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
 
 const SIGNUP_USER = gql`
   mutation RegisterUser($login: String!, $password: String!) {
-    registerUser(login: $login, password: $password)
+    registerUser(login: $login, password: $password) {
+      id
+    }
   }
 `;
 
@@ -19,7 +21,7 @@ const LOGIN = gql`
 export const HomePage: React.FC = () => {
   const [loginValueReg, setLoginValue] = useState("");
   const [passwordValueReg, setPasswordValue] = useState("");
-  const [registerUser] = useMutation(SIGNUP_USER);
+  const [registerUser,{ data: regData }] = useMutation(SIGNUP_USER);
 
   const onClickReg = () => {
     const variables = {
@@ -32,7 +34,7 @@ export const HomePage: React.FC = () => {
 
   const [loginValueLog, setLoginValueLog] = useState("");
   const [passwordValueLog, setPasswordValueLog] = useState("");
-  const { data, refetch } = useQuery(LOGIN, {
+  const [login ,{ data: logData }] = useLazyQuery(LOGIN, {
     variables: {
       login: loginValueLog,
       password: passwordValueLog,
@@ -45,13 +47,14 @@ export const HomePage: React.FC = () => {
       password: passwordValueLog,
     };
 
-    refetch(variables);
+    login({variables});
   };
 
   return (
     <main>
       <div className="container">
         <div className="row">
+
           <div>
             <h1>Reg</h1>
             <input
@@ -66,6 +69,7 @@ export const HomePage: React.FC = () => {
             />
             <button onClick={onClickReg}>submit</button>
           </div>
+
           <div>
             <h1>Login: </h1>
             <div>
@@ -75,7 +79,7 @@ export const HomePage: React.FC = () => {
                 type="text"
               />
               <input
-                value={loginValueLog}
+                value={passwordValueLog}
                 onChange={({ target: { value } }) => setPasswordValueLog(value)}
                 type="password"
               />
