@@ -1,9 +1,14 @@
-import React, { useState } from "react";
-import { useLazyQuery, useMutation } from "@apollo/react-hooks";
-import { gql } from "apollo-boost";
+import React from "react";
+import { Container } from "@material-ui/core";
+
+import { Welcome } from "../components";
 
 export const HomePage: React.FC = () => {
   return (
-    <main></main>
+    <main>
+      <Container>
+        <Welcome/>
+      </Container>
+    </main>
   );
 };

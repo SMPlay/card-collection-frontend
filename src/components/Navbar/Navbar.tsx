@@ -15,6 +15,7 @@ const pages = [
   { pageName: "Главная", url: "/" },
   { pageName: "Коллекции", url: "/collections" },
   { pageName: "Галерея", url: "/gallery" },
+  { pageName: "Аукцион", url: "/auction" }
 ];
 
 export const Navbar = () => {
