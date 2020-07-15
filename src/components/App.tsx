@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import { HomePage } from "../pages";
+import { HomePage, CollectionsPage } from "../pages";
 import { Header } from "./Header/Header";
 
 const App: React.FC = () => {
   return (
     <Router>
-      <Header />
+      <Header/>
       <Switch>
         <Route exact path="/" component={HomePage} />
+        <Route exact path="/collections/:id" component={CollectionsPage}/>
       </Switch>
     </Router>
   );

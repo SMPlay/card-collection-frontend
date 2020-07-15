@@ -5,7 +5,7 @@ exports[`Header component should render 1`] = `
   className="MuiList-root MuiList-padding"
 >
   <a
-    href="/"
+    href="/test"
     onClick={[Function]}
   >
     <div
@@ -31,103 +31,7 @@ exports[`Header component should render 1`] = `
         <span
           className="MuiTypography-root MuiListItemText-primary makeStyles-navlink-1 MuiTypography-body1 MuiTypography-displayBlock"
         >
-          Главная
-        </span>
-      </div>
-    </div>
-  </a>
-  <a
-    href="/collections"
-    onClick={[Function]}
-  >
-    <div
-      aria-disabled={false}
-      className="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"
-      onBlur={[Function]}
-      onDragLeave={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      role="button"
-      tabIndex={0}
-    >
-      <div
-        className="MuiListItemText-root"
-      >
-        <span
-          className="MuiTypography-root MuiListItemText-primary makeStyles-navlink-1 MuiTypography-body1 MuiTypography-displayBlock"
-        >
-          Коллекции
-        </span>
-      </div>
-    </div>
-  </a>
-  <a
-    href="/gallery"
-    onClick={[Function]}
-  >
-    <div
-      aria-disabled={false}
-      className="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"
-      onBlur={[Function]}
-      onDragLeave={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      role="button"
-      tabIndex={0}
-    >
-      <div
-        className="MuiListItemText-root"
-      >
-        <span
-          className="MuiTypography-root MuiListItemText-primary makeStyles-navlink-1 MuiTypography-body1 MuiTypography-displayBlock"
-        >
-          Галерея
-        </span>
-      </div>
-    </div>
-  </a>
-  <a
-    href="/auction"
-    onClick={[Function]}
-  >
-    <div
-      aria-disabled={false}
-      className="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"
-      onBlur={[Function]}
-      onDragLeave={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      role="button"
-      tabIndex={0}
-    >
-      <div
-        className="MuiListItemText-root"
-      >
-        <span
-          className="MuiTypography-root MuiListItemText-primary makeStyles-navlink-1 MuiTypography-body1 MuiTypography-displayBlock"
-        >
-          Аукцион
+          Test
         </span>
       </div>
     </div>

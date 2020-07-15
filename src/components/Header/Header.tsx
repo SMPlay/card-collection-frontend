@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useLocation } from "react-router-dom"
 import clsx from "clsx";
 import {
   makeStyles,
@@ -20,6 +21,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import MenuIcon from "@material-ui/icons/Menu";
 
 import { Navbar } from "../Navbar";
+import { PageType } from "../../types/PageType";
 
 const drawerWidth = 240;
 
@@ -81,8 +83,18 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
+const pages = [
+  { pageName: "Главная", url: "/" },
+  { pageName: "Коллекции", url: "/collections" },
+  { pageName: "Галерея", url: "/gallery" },
+  { pageName: "Аукцион", url: "/auction" }
+];
+
 export const Header: React.FC = () => {
-  const [pagaName, setPageName] = useState("Главная");
+  const { pathname } = useLocation();
+  const currentPageFromUrl = pathname.split("/")[1];
+  const currentPage = pages.filter(page => page.url === `/${currentPageFromUrl}`)[0].pageName;
+
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = useState(false);
@@ -115,7 +127,7 @@ export const Header: React.FC = () => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            { pagaName }
+            { currentPage }
           </Typography>
         </Toolbar>
       </AppBar>
@@ -138,7 +150,7 @@ export const Header: React.FC = () => {
           </IconButton>
         </div>
         <Divider />
-          <Navbar setPageName={ setPageName }/>
+          <Navbar pages={pages}/>
         <Divider />
       </Drawer>
       <main

@@ -47,7 +47,7 @@ exports[`Header component should render 1`] = `
       <h6
         className="MuiTypography-root MuiTypography-h6 MuiTypography-noWrap"
       >
-        Главная страница
+        Главная
       </h6>
     </div>
   </header>

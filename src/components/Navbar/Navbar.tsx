@@ -5,37 +5,27 @@ import ListItemText from "@material-ui/core/ListItemText";
 import { Link } from "react-router-dom";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 
+import { PageType } from "../../types/PageType";
+
 const useStyles = makeStyles((theme: Theme) => 
   createStyles({
     navlink: { color: "rgb(79, 79, 79)" }
   })
 );
 
-const pages = [
-  { pageName: "Главная", url: "/" },
-  { pageName: "Коллекции", url: "/collections" },
-  { pageName: "Галерея", url: "/gallery" },
-  { pageName: "Аукцион", url: "/auction" }
-];
-
 interface NavbarProps {
-  setPageName: (name: string) => void;
+  pages: PageType[];
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ setPageName }) => {
+export const Navbar: React.FC<NavbarProps> = ({ pages }) => {
   const classes = useStyles();
-
-  const onClick = (name: string): void => {
-    setPageName(name);
-  }
 
   return (
     <List>
       {pages.map((page) => (
         <Link
           to={page.url}
-          key={page.pageName}
-          onClick={() => onClick(page.pageName)}>
+          key={page.pageName}>
           <ListItem button>
             <ListItemText classes={{primary: classes.navlink}} primary={page.pageName} />
           </ListItem>

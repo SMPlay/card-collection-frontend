@@ -6,9 +6,13 @@ import { Navbar } from "./Navbar";
 
 describe("Header component", () => {
   it("should render", () => {
+    const pages = [
+      { pageName: "Test", url: "/test"}
+    ]
+
     const tree = renderer.create(
       <Router>
-        <Navbar/>
+        <Navbar pages={pages}/>
       </Router>
     ).toJSON();
 
