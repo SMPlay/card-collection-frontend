@@ -6,16 +6,18 @@ import {
   Theme,
   createStyles,
 } from "@material-ui/core/styles";
-import Drawer from "@material-ui/core/Drawer";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import Divider from "@material-ui/core/Divider";
-import IconButton from "@material-ui/core/IconButton";
+import {
+  Drawer,
+  CssBaseline,
+  AppBar,
+  Toolbar,
+  Typography,
+  Divider,
+  IconButton,
+} from "@material-ui/core";
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import MenuIcon from "@material-ui/icons/Menu";
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 
 import { Navbar } from "../Navbar";
 
@@ -80,6 +82,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export const Header: React.FC = () => {
+  const [pagaName, setPageName] = useState("Главная");
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = useState(false);
@@ -112,7 +115,7 @@ export const Header: React.FC = () => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Главная страница
+            { pagaName }
           </Typography>
         </Toolbar>
       </AppBar>
@@ -135,7 +138,7 @@ export const Header: React.FC = () => {
           </IconButton>
         </div>
         <Divider />
-          <Navbar />
+          <Navbar setPageName={ setPageName }/>
         <Divider />
       </Drawer>
       <main

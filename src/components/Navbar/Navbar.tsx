@@ -18,13 +18,24 @@ const pages = [
   { pageName: "Аукцион", url: "/auction" }
 ];
 
-export const Navbar = () => {
+interface NavbarProps {
+  setPageName: (name: string) => void;
+}
+
+export const Navbar: React.FC<NavbarProps> = ({ setPageName }) => {
   const classes = useStyles();
+
+  const onClick = (name: string): void => {
+    setPageName(name);
+  }
 
   return (
     <List>
       {pages.map((page) => (
-        <Link to={page.url} key={page.pageName}>
+        <Link
+          to={page.url}
+          key={page.pageName}
+          onClick={() => onClick(page.pageName)}>
           <ListItem button>
             <ListItemText classes={{primary: classes.navlink}} primary={page.pageName} />
           </ListItem>
