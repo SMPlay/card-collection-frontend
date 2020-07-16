@@ -5,7 +5,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import { Link } from "react-router-dom";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 
-import { PageType } from "../../types/PageType";
+import { PageType } from "../../../types/PageType";
 
 const useStyles = makeStyles((theme: Theme) => 
   createStyles({
