@@ -1,17 +1,21 @@
 import React from "react";
 import { Grid } from "@material-ui/core";
-import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
+import { makeStyles, createStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
+import { ApolloError } from "@apollo/client";
 
 import { CollectionType } from "../../types/CollectionType";
 import { CardCollection } from "./Card-collection/Card-collection";
+import { FetchError } from "../Fetch-error/Fetch-error";
+import { Loading } from "../Loading/Loading";
 
-interface CollectionsProps {
+export interface CollectionsProps {
   collections: CollectionType[] | undefined;
   loading: boolean;
+  error: ApolloError | undefined | boolean;
 }
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
     root: {
       marginTop: 20,
@@ -22,13 +26,15 @@ const useStyles = makeStyles((theme: Theme) =>
 export const Collections: React.FC<CollectionsProps> = ({
   collections,
   loading,
+  error
 }) => {
   const styles = useStyles();
 
   return (
-    <Grid className={styles.root} spacing={2} container>
+    <Grid className={styles.root} spacing={2} justify="center" container>
+      {error && <Grid item><FetchError/></Grid>}
       {loading ? (
-        <h1>Loading...</h1>
+        <Grid item><Loading/></Grid>
       ) : (
         collections?.map((collection) => (
           <Grid item xs={3} key={collection.id}>

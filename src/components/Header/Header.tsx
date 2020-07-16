@@ -54,7 +54,7 @@ const pages = [
 export const Header: React.FC = () => {
   const { pathname } = useLocation();
   const currentPageFromUrl = pathname.split("/")[1];
-  const currentPage = pages.filter(page => page.url === `/${currentPageFromUrl}`)[0].pageName;
+  const currentPage = pages.find(page => page.url === `/${currentPageFromUrl}`)?.pageName;
 
   const classes = useStyles();
   const [open, setOpen] = useState(false);
@@ -72,7 +72,7 @@ export const Header: React.FC = () => {
       <CssBaseline />
       <AppBarHeader
          open={open}
-         currentPage={currentPage}
+         currentPage={currentPage!}
          handleDrawerOpen={handleDrawerOpen}/>
       <DrawerHeader
         pages={pages}

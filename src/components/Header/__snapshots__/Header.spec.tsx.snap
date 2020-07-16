@@ -5,14 +5,14 @@ exports[`Header component should render 1`] = `
   className="makeStyles-root-1"
 >
   <header
-    className="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary makeStyles-appBar-2 mui-fixed MuiPaper-elevation4"
+    className="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary makeStyles-appBar-5 mui-fixed MuiPaper-elevation4"
   >
     <div
       className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
     >
       <button
         aria-label="open drawer"
-        className="MuiButtonBase-root MuiIconButton-root makeStyles-menuButton-4 MuiIconButton-colorInherit MuiIconButton-edgeStart"
+        className="MuiButtonBase-root MuiIconButton-root makeStyles-menuButton-9 MuiIconButton-colorInherit MuiIconButton-edgeStart"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -52,10 +52,15 @@ exports[`Header component should render 1`] = `
     </div>
   </header>
   <div
-    className="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-6"
+    className="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-10"
+    style={
+      Object {
+        "width": 240,
+      }
+    }
   >
     <div
-      className="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-7 MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft MuiPaper-elevation0"
+      className="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-11 MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft MuiPaper-elevation0"
       style={
         Object {
           "visibility": "hidden",
@@ -63,7 +68,7 @@ exports[`Header component should render 1`] = `
       }
     >
       <div
-        className="makeStyles-drawerHeader-8"
+        className="makeStyles-drawerHeader-12"
       >
         <button
           className="MuiButtonBase-root MuiIconButton-root"
@@ -130,7 +135,7 @@ exports[`Header component should render 1`] = `
               className="MuiListItemText-root"
             >
               <span
-                className="MuiTypography-root MuiListItemText-primary makeStyles-navlink-11 MuiTypography-body1 MuiTypography-displayBlock"
+                className="MuiTypography-root MuiListItemText-primary makeStyles-navlink-13 MuiTypography-body1 MuiTypography-displayBlock"
               >
                 Главная
               </span>
@@ -162,7 +167,7 @@ exports[`Header component should render 1`] = `
               className="MuiListItemText-root"
             >
               <span
-                className="MuiTypography-root MuiListItemText-primary makeStyles-navlink-11 MuiTypography-body1 MuiTypography-displayBlock"
+                className="MuiTypography-root MuiListItemText-primary makeStyles-navlink-13 MuiTypography-body1 MuiTypography-displayBlock"
               >
                 Коллекции
               </span>
@@ -194,7 +199,7 @@ exports[`Header component should render 1`] = `
               className="MuiListItemText-root"
             >
               <span
-                className="MuiTypography-root MuiListItemText-primary makeStyles-navlink-11 MuiTypography-body1 MuiTypography-displayBlock"
+                className="MuiTypography-root MuiListItemText-primary makeStyles-navlink-13 MuiTypography-body1 MuiTypography-displayBlock"
               >
                 Галерея
               </span>
@@ -226,7 +231,7 @@ exports[`Header component should render 1`] = `
               className="MuiListItemText-root"
             >
               <span
-                className="MuiTypography-root MuiListItemText-primary makeStyles-navlink-11 MuiTypography-body1 MuiTypography-displayBlock"
+                className="MuiTypography-root MuiListItemText-primary makeStyles-navlink-13 MuiTypography-body1 MuiTypography-displayBlock"
               >
                 Аукцион
               </span>
@@ -240,10 +245,10 @@ exports[`Header component should render 1`] = `
     </div>
   </div>
   <main
-    className="makeStyles-content-9"
+    className="makeStyles-content-2"
   >
     <div
-      className="makeStyles-drawerHeader-8"
+      className="makeStyles-drawerHeader-4"
     />
   </main>
 </div>

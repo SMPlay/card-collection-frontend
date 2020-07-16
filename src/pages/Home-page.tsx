@@ -12,7 +12,7 @@ interface CollectionData {
 }
 
 export const HomePage: React.FC = () => {
-  const { data, loading } = useQuery<CollectionData>(GET_CARD_COLLECTIONS);
+  const { data, loading, error } = useQuery<CollectionData>(GET_CARD_COLLECTIONS);
 
   return (
     <main>
@@ -23,7 +23,8 @@ export const HomePage: React.FC = () => {
             Все доступные коллекции
           </Typography>
           <Collections
-            loading={loading} 
+            loading={loading}
+            error={error}
             collections={data?.cardCollections} />
         </Grid>
       </Container>
