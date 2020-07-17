@@ -1,12 +1,12 @@
 import React from "react";
-import { AppBar } from "@material-ui/core";
-import { HeaderToolbar } from "../Header-toolbar/Header-toolbar";
+import {AppBar, IconButton, Toolbar, Typography} from "@material-ui/core";
 import clsx from "clsx";
 import {
   makeStyles,
   Theme,
   createStyles,
 } from "@material-ui/core/styles";
+import MenuIcon from "@material-ui/icons/Menu";
 
 const drawerWidth = 240;
 
@@ -34,30 +34,45 @@ const useStyles = makeStyles((theme: Theme) =>
       ...theme.mixins.toolbar,
       justifyContent: "flex-end",
     },
+     hide: {
+          display: "none",
+      },
+      menuButton: {
+          marginRight: theme.spacing(2),
+      },
   })
 );
 
-interface AppBarHeaderProps {
-  open: boolean;
+interface HeaderContentProps {
+  isOpen: boolean;
   currentPage: string;
-  handleDrawerOpen: () => void; 
+  handleDrawerOpen: () => void;
 }
 
-export const AppBarHeader: React.FC<AppBarHeaderProps> = ({ open, currentPage, handleDrawerOpen }) => {
+export const HeaderContent: React.FC<HeaderContentProps> = ({ isOpen, currentPage, handleDrawerOpen }) => {
   const classes = useStyles();
 
   return (
     <AppBar
       position="fixed"
       className={clsx(classes.appBar, {
-        [classes.appBarShift]: open,
+        [classes.appBarShift]: isOpen,
       })}
     >
-      <HeaderToolbar
-        open={open}
-        currentPage={currentPage}
-        handleDrawerOpen={handleDrawerOpen}
-      />
+        <Toolbar>
+            <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                onClick={handleDrawerOpen}
+                edge="start"
+                className={clsx(classes.menuButton, isOpen && classes.hide)}
+            >
+                <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" noWrap>
+                {currentPage}
+            </Typography>
+        </Toolbar>
     </AppBar>
   );
 };

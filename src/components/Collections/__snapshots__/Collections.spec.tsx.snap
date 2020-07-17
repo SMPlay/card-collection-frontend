@@ -2,7 +2,7 @@
 
 exports[`Collections component should render 1`] = `
 <div
-  className="MuiGrid-root makeStyles-root-1 MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-justify-xs-center"
+  className="MuiGrid-root makeStyles-root-1 MuiGrid-container MuiGrid-spacing-xs-2"
 >
   <div
     className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3"

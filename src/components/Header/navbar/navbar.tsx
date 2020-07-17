@@ -9,7 +9,7 @@ import {
   createStyles,
 } from "@material-ui/core/styles";
 
-import { Navbar } from "../Navbar/Navbar";
+import { NavbarList } from "./navbar-list/navbar-list";
 import { PageType } from '../../../types/PageType';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -33,11 +33,11 @@ const useStyles = makeStyles((theme: Theme) =>
 interface DrawerHeaderProps {
   handleDrawerClose: () => void;
   drawerWidth: number;
-  open: boolean;
+  isOpen: boolean;
   pages: PageType[];
 }
 
-export const DrawerHeader: React.FC<DrawerHeaderProps> = ({ handleDrawerClose, open, drawerWidth, pages }) => {
+export const Navbar: React.FC<DrawerHeaderProps> = ({ handleDrawerClose, isOpen, drawerWidth, pages }) => {
   const theme = useTheme();
   const classes = useStyles();
 
@@ -47,7 +47,7 @@ export const DrawerHeader: React.FC<DrawerHeaderProps> = ({ handleDrawerClose, o
         style={{ width: drawerWidth }}
         variant="persistent"
         anchor="left"
-        open={open}
+        open={isOpen}
         classes={{
           paper: classes.drawerPaper,
         }}
@@ -62,7 +62,7 @@ export const DrawerHeader: React.FC<DrawerHeaderProps> = ({ handleDrawerClose, o
           </IconButton>
         </div>
         <Divider />
-          <Navbar pages={pages}/>
+          <NavbarList pages={pages}/>
         <Divider />
       </Drawer>
   );

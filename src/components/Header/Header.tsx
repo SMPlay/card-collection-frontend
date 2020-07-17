@@ -8,8 +8,8 @@ import {
 } from "@material-ui/core/styles";
 import { CssBaseline } from "@material-ui/core";
 
-import { AppBarHeader } from "./AppBar-header/AppBar-header";
-import { DrawerHeader } from "./Drawer-header/Drawer-header";
+import { HeaderContent } from "./Header-content/header-content";
+import { Navbar } from "./navbar/navbar";
 
 const drawerWidth = 240;
 
@@ -57,33 +57,33 @@ export const Header: React.FC = () => {
   const currentPage = pages.find(page => page.url === `/${currentPageFromUrl}`)?.pageName;
 
   const classes = useStyles();
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleDrawerOpen = () => {
-    setOpen(true);
+    setIsOpen(true);
   };
 
   const handleDrawerClose = () => {
-    setOpen(false);
+    setIsOpen(false);
   };
 
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <AppBarHeader
-         open={open}
-         currentPage={currentPage!}
-         handleDrawerOpen={handleDrawerOpen}/>
-      <DrawerHeader
-        pages={pages}
-        handleDrawerClose={handleDrawerClose}
-        drawerWidth={drawerWidth}
-        open={open}/>
       <main
         className={clsx(classes.content, {
-          [classes.contentShift]: open,
+          [classes.contentShift]: isOpen,
         })}
       >
+          <HeaderContent
+              isOpen={isOpen}
+              currentPage={currentPage!}
+              handleDrawerOpen={handleDrawerOpen}/>
+          <Navbar
+              pages={pages}
+              handleDrawerClose={handleDrawerClose}
+              drawerWidth={drawerWidth}
+              isOpen={isOpen}/>
         <div className={classes.drawerHeader} />
       </main>
     </div>

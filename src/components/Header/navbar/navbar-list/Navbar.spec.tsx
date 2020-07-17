@@ -2,7 +2,7 @@ import React from "react";
 import renderer from "react-test-renderer";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import { Navbar } from "./Navbar";
+import { NavbarList } from "./navbar-list";
 
 describe("Header component", () => {
   it("should render", () => {
@@ -12,7 +12,7 @@ describe("Header component", () => {
 
     const tree = renderer.create(
       <Router>
-        <Navbar pages={pages}/>
+        <NavbarList pages={pages}/>
       </Router>
     ).toJSON();
 

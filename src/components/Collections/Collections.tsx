@@ -6,7 +6,7 @@ import { ApolloError } from "@apollo/client";
 
 import { CollectionType } from "../../types/CollectionType";
 import { CardCollection } from "./Card-collection/Card-collection";
-import { FetchError } from "../Fetch-error/Fetch-error";
+import { ReceivedError } from "../Recieved-error/Received-error";
 import { Loading } from "../Loading/Loading";
 
 export interface CollectionsProps {
@@ -31,8 +31,8 @@ export const Collections: React.FC<CollectionsProps> = ({
   const styles = useStyles();
 
   return (
-    <Grid className={styles.root} spacing={2} justify="center" container>
-      {error && <Grid item><FetchError/></Grid>}
+    <Grid className={styles.root} spacing={2}  container>
+      {error && <Grid item><ReceivedError/></Grid>}
       {loading ? (
         <Grid item><Loading/></Grid>
       ) : (
