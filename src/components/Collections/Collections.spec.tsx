@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { create } from "react-test-renderer";
 import { mount } from "enzyme";
 
-import { Collections, CollectionsProps } from "./Collections";
+import { Collections, CollectionsProps } from "./collections";
 
 describe("Collections component", () => {
   let props: CollectionsProps;
@@ -63,6 +63,6 @@ describe("Collections component", () => {
       </Router>
     );
 
-    expect(component.exists("FetchError")).toBeTruthy();
+    expect(component.exists("ReceivedError")).toBeTruthy();
   })
 });

@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export const CardCollection = ({ name, imageUrl, cardsCount, release }: CardCollectionProps) => {
+export const CardCollection: React.FC<CardCollectionProps> = ({ name, imageUrl, cardsCount, release }) => {
   const styles = useStyles();
 
   return (

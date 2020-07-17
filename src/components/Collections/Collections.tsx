@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 import { ApolloError } from "@apollo/client";
 
 import { CollectionType } from "../../types/CollectionType";
-import { CardCollection } from "./Card-collection/Card-collection";
-import { ReceivedError } from "../Recieved-error/Received-error";
-import { Loading } from "../Loading/Loading";
+import { CardCollection } from "./card-collection/card-collection";
+import { ReceivedError } from "../recieved-error/received-error";
+import { Loading } from "../loading/loading";
 
 export interface CollectionsProps {
   collections: CollectionType[] | undefined;

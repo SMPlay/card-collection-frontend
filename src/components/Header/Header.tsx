@@ -7,9 +7,12 @@ import {
   createStyles,
 } from "@material-ui/core/styles";
 import { CssBaseline } from "@material-ui/core";
+import { useQuery } from "@apollo/client";
 
-import { HeaderContent } from "./Header-content/header-content";
+import { HeaderContent } from "./header-content/header-content";
 import { Navbar } from "./navbar/navbar";
+import { GET_COLLECTIONS_NAME } from "../../queries";
+import { CollectionNameType } from '../../types/CollectionNameType';
 
 const drawerWidth = 240;
 
@@ -46,25 +49,33 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const pages = [
   { pageName: "Главная", url: "/" },
+  { pageName: "Галерея", url: "/gallery" },
+  { pageName: "Аукцион", url: "/auction" }
+];
+
+const allPages = [
+  { pageName: "Главная", url: "/" },
   { pageName: "Коллекции", url: "/collections" },
   { pageName: "Галерея", url: "/gallery" },
   { pageName: "Аукцион", url: "/auction" }
 ];
 
+interface CollectionsNameData {
+  cardCollections: CollectionNameType[] | undefined;
+}
+
 export const Header: React.FC = () => {
   const { pathname } = useLocation();
   const currentPageFromUrl = pathname.split("/")[1];
-  const currentPage = pages.find(page => page.url === `/${currentPageFromUrl}`)?.pageName;
+  const currentPage = allPages.find(page => page.url === `/${currentPageFromUrl}`)?.pageName;
+
+  const { data, error } = useQuery<CollectionsNameData>(GET_COLLECTIONS_NAME);
 
   const classes = useStyles();
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const handleDrawerOpen = () => {
-    setIsOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setIsOpen(false);
+  const handleClick = () => {
+    setIsOpen(!isOpen);
   };
 
   return (
@@ -78,10 +89,12 @@ export const Header: React.FC = () => {
           <HeaderContent
               isOpen={isOpen}
               currentPage={currentPage!}
-              handleDrawerOpen={handleDrawerOpen}/>
+              handleDrawerOpen={handleClick}/>
           <Navbar
               pages={pages}
-              handleDrawerClose={handleDrawerClose}
+              collectionsNameError={error}
+              collectionsName={data?.cardCollections}
+              handleDrawerClose={handleClick}
               drawerWidth={drawerWidth}
               isOpen={isOpen}/>
         <div className={classes.drawerHeader} />

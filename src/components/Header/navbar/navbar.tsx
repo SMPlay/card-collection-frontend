@@ -1,4 +1,5 @@
 import React from "react";
+import { ApolloError } from "@apollo/client";
 import { Drawer, IconButton, Divider } from "@material-ui/core";
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
@@ -11,6 +12,7 @@ import {
 
 import { NavbarList } from "./navbar-list/navbar-list";
 import { PageType } from '../../../types/PageType';
+import { CollectionNameType } from "../../../types/CollectionNameType";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -35,9 +37,11 @@ interface DrawerHeaderProps {
   drawerWidth: number;
   isOpen: boolean;
   pages: PageType[];
+  collectionsName: CollectionNameType[] | undefined;
+  collectionsNameError: boolean | ApolloError | undefined;
 }
 
-export const Navbar: React.FC<DrawerHeaderProps> = ({ handleDrawerClose, isOpen, drawerWidth, pages }) => {
+export const Navbar: React.FC<DrawerHeaderProps> = ({ collectionsNameError, handleDrawerClose, isOpen, drawerWidth, pages, collectionsName }) => {
   const theme = useTheme();
   const classes = useStyles();
 
@@ -62,7 +66,7 @@ export const Navbar: React.FC<DrawerHeaderProps> = ({ handleDrawerClose, isOpen,
           </IconButton>
         </div>
         <Divider />
-          <NavbarList pages={pages}/>
+          <NavbarList collectionsNameError={collectionsNameError} collectionsName={collectionsName} pages={pages}/>
         <Divider />
       </Drawer>
   );

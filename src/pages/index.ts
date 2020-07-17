@@ -1,2 +1,2 @@
-export { HomePage } from "./Home-page";
-export { CollectionPage } from "./Collection-page";
+export { HomePage } from "./home-page";
+export { CollectionPage } from "./collection-page";

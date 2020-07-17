@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { HomePage, CollectionPage } from "../pages";
-import { Header } from "./Header/Header";
+import { Header } from "./header/header";
 
 const App: React.FC = () => {
   return (

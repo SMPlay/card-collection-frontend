@@ -1,7 +1,7 @@
 import React from "react";
 import renderer from 'react-test-renderer';
 
-import { Welcome } from './Welcome';
+import { Welcome } from './welcome';
 
 describe("Welcome component", () => {
   it("should render", () => {

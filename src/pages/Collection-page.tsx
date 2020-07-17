@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 import { GET_SPIDER_MAN_CARDS } from "../queries/get-spider-man-cards";
-import { Loading } from "../components/Loading/Loading";
+import { Loading } from "../components/loading/loading";
 
 interface SpiderManCards {
   id: string;

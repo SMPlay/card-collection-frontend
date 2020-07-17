@@ -1,7 +1,7 @@
 import React from "react";
 import { create } from "react-test-renderer";
 
-import { CardCollection } from "./Card-collection";
+import { CardCollection } from "./card-collection";
 
 describe("CardCollection component", () => {
   it("should render", () => {
