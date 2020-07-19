@@ -44,10 +44,9 @@ export const CollectionPage = () => {
         {loading ? (
           <Grid item><Loading/></Grid>
         ) : (
-          data?.spiderManCards.map(({id, name, kind, number, type, imageUrl, have, need}) => (
-            <Grid item xs={3} key={id}>
-              <CollectionCard name={name} imageUrl={imageUrl} kind={kind} number={number} type={type} have={have}
-                              need={need}/>
+          data?.spiderManCards.map(card => (
+            <Grid item xs={3} key={card.id}>
+              <CollectionCard {...card}/>
             </Grid>
           ))
         )}
