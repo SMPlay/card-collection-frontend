@@ -1,5 +1,5 @@
 export interface SpiderManCard {
-  id: string;
+  id?: string;
   name: string;
   imageUrl: string;
   type: string;
