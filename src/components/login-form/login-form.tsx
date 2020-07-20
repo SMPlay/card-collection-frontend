@@ -38,8 +38,8 @@ const useStyles = makeStyles((theme: Theme) =>
 export interface LoginFormProps {
   loginValue: string;
   passwordValue: string;
-  loginError: boolean;
-  passwordError: boolean;
+  loginError: string;
+  passwordError: string;
   onChangeLogin: (value: string) => void;
   onChangePassword: (value: string) => void;
   onSubmit: (login: string, password: string) => void;
@@ -65,8 +65,8 @@ export const LoginForm: React.FC<LoginFormProps> = ({
           label="Логин"
           placeholder="Введите логин"
           variant="outlined"
-          error={loginError}
-          helperText={loginError ? "empty login" : ""}
+          error={loginError !== ""}
+          helperText={loginError}
           required
         />
         <TextField
@@ -76,9 +76,8 @@ export const LoginForm: React.FC<LoginFormProps> = ({
           placeholder="Введите пароль"
           variant="outlined"
           type="password"
-          error={passwordError}
-          helperText={passwordError ? "empty password" : ""}
-
+          error={passwordError !== ""}
+          helperText={passwordError}
           required
         />
       </Box>
