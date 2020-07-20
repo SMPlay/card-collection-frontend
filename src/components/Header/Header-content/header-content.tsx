@@ -1,18 +1,21 @@
 import React from "react";
-import {AppBar, IconButton, Toolbar, Typography} from "@material-ui/core";
-import clsx from "clsx";
 import {
-  makeStyles,
-  Theme,
-  createStyles,
-} from "@material-ui/core/styles";
+  AppBar,
+  IconButton,
+  Toolbar,
+  Typography,
+  Button,
+  Box,
+} from "@material-ui/core";
+import clsx from "clsx";
+import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import MenuIcon from "@material-ui/icons/Menu";
+import { Link } from "react-router-dom";
 
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-
     appBar: {
       transition: theme.transitions.create(["margin", "width"], {
         easing: theme.transitions.easing.sharp,
@@ -34,12 +37,18 @@ const useStyles = makeStyles((theme: Theme) =>
       ...theme.mixins.toolbar,
       justifyContent: "flex-end",
     },
-     hide: {
-          display: "none",
-      },
-      menuButton: {
-          marginRight: theme.spacing(2),
-      },
+    hide: {
+      display: "none",
+    },
+    menuButton: {
+      marginRight: theme.spacing(2),
+    },
+    title: {
+      flexGrow: 1,
+    },
+    navLink: {
+      color: "#fff"
+    }
   })
 );
 
@@ -49,7 +58,11 @@ interface HeaderContentProps {
   handleDrawerOpen: () => void;
 }
 
-export const HeaderContent: React.FC<HeaderContentProps> = ({ isOpen, currentPage, handleDrawerOpen }) => {
+export const HeaderContent: React.FC<HeaderContentProps> = ({
+  isOpen,
+  currentPage,
+  handleDrawerOpen,
+}) => {
   const classes = useStyles();
 
   return (
@@ -59,20 +72,29 @@ export const HeaderContent: React.FC<HeaderContentProps> = ({ isOpen, currentPag
         [classes.appBarShift]: isOpen,
       })}
     >
-        <Toolbar>
-            <IconButton
-                color="inherit"
-                aria-label="open drawer"
-                onClick={handleDrawerOpen}
-                edge="start"
-                className={clsx(classes.menuButton, isOpen && classes.hide)}
-            >
-                <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" noWrap>
-                {currentPage}
-            </Typography>
-        </Toolbar>
+      <Toolbar>
+        <IconButton
+          color="inherit"
+          aria-label="open drawer"
+          onClick={handleDrawerOpen}
+          edge="start"
+          className={clsx(classes.menuButton, isOpen && classes.hide)}
+        >
+          <MenuIcon />
+        </IconButton>
+        <Typography variant="h6" noWrap className={classes.title}>
+          {currentPage}
+        </Typography>
+        <Box>
+          <Button color="inherit">
+            <Link className={classes.navLink} to="/login">Войти</Link>
+          </Button>
+          /
+          <Button color="inherit">
+            <Link className={classes.navLink} to="/registration">Регистрация</Link>
+          </Button>
+        </Box>
+      </Toolbar>
     </AppBar>
   );
 };
