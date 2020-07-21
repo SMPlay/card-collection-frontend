@@ -1,5 +1,5 @@
 import React from "react";
-import { TextField, Box, Button } from "@material-ui/core";
+import { TextField, Box, Button, Typography } from "@material-ui/core";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 
@@ -38,8 +38,8 @@ const useStyles = makeStyles((theme: Theme) =>
 export interface LoginFormProps {
   loginValue: string;
   passwordValue: string;
-  loginError: string;
-  passwordError: string;
+  loginError: boolean;
+  passwordError: boolean;
   onChangeLogin: (value: string) => void;
   onChangePassword: (value: string) => void;
   onSubmit: (login: string, password: string) => void;
@@ -58,15 +58,21 @@ export const LoginForm: React.FC<LoginFormProps> = ({
 
   return (
     <form className={styles.root}>
-      <Box className={styles.loginField}>
+      <Typography variant="h4" component="h2">
+        {loginError && passwordError 
+          ? "Неправильный логин и/или пароль"
+          : ""
+        }
+      </Typography>
+      <Box m={2} className={styles.loginField}>
         <TextField
           value={loginValue}
           onChange={({ target: { value } }) => onChangeLogin(value)}
           label="Логин"
           placeholder="Введите логин"
           variant="outlined"
-          error={loginError !== ""}
-          helperText={loginError}
+          error={loginError}
+          helperText={loginValue === "" && loginError ? "Это обязательное поле!" : ""}
           required
         />
         <TextField
@@ -76,8 +82,8 @@ export const LoginForm: React.FC<LoginFormProps> = ({
           placeholder="Введите пароль"
           variant="outlined"
           type="password"
-          error={passwordError !== ""}
-          helperText={passwordError}
+          error={passwordError}
+          helperText={passwordValue === "" && passwordError ? "Это обязательное поле!" : ""}
           required
         />
       </Box>
