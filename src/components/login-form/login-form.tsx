@@ -58,12 +58,12 @@ export const LoginForm: React.FC<LoginFormProps> = ({
 
   return (
     <form className={styles.root}>
-      <Typography variant="h4" component="h2">
-        {loginError && passwordError 
-          ? "Неправильный логин и/или пароль"
-          : ""
-        }
-      </Typography>
+      {loginError && passwordError
+        ? <Typography variant="h4" component="h2">
+            Неправильный логин и/или пароль
+          </Typography>
+        : ""
+      }
       <Box m={2} className={styles.loginField}>
         <TextField
           value={loginValue}

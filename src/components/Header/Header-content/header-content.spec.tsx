@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 import { create } from "react-test-renderer";
 
 import { HeaderContent } from "./header-content";
@@ -11,7 +12,11 @@ describe("header content", () => {
       handleDrawerOpen: jest.fn(),
     };
 
-    const tree = create(<HeaderContent {...props}/>).toJSON();
+    const tree = create(
+      <Router>
+        <HeaderContent {...props}/>
+      </Router>
+    ).toJSON();
 
     expect(tree).toMatchSnapshot();
   });

@@ -10,7 +10,7 @@ export const LoginPage: React.FC = () => {
   const [passwordValue, setPasswordValue] = useState<string>("");
   const [loginError, setLoginError] = useState<boolean>(false);
   const [passwordError, setPasswordError] = useState<boolean>(false);
-  const [goLogin, { loading }] = useMutation(LOGIN, { errorPolicy: "all" });
+  const [goLogin] = useMutation(LOGIN, { errorPolicy: "all" });
 
   const onChangeLogin = (value: string) => {
     setLoginValue(value);

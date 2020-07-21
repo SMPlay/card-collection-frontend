@@ -42,10 +42,73 @@ exports[`header content should render 1`] = `
       </span>
     </button>
     <h6
-      className="MuiTypography-root MuiTypography-h6 MuiTypography-noWrap"
+      className="MuiTypography-root makeStyles-title-6 MuiTypography-h6 MuiTypography-noWrap"
     >
       test
     </h6>
+    <div
+      className="MuiBox-root MuiBox-root-8"
+    >
+      <button
+        className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
+        disabled={false}
+        onBlur={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiButton-label"
+        >
+          <a
+            className="makeStyles-navLink-7"
+            href="/login"
+            onClick={[Function]}
+          >
+            Войти
+          </a>
+        </span>
+      </button>
+      /
+      <button
+        className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
+        disabled={false}
+        onBlur={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiButton-label"
+        >
+          <a
+            className="makeStyles-navLink-7"
+            href="/registration"
+            onClick={[Function]}
+          >
+            Регистрация
+          </a>
+        </span>
+      </button>
+    </div>
   </div>
 </header>
 `;
