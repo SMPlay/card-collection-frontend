@@ -6,7 +6,7 @@ import { MockedProvider } from "@apollo/client/testing";
 import { Header } from "./header";
 import { GET_COLLECTIONS_NAME } from "../../queries";
 
-describe("Header component", () => {
+describe("header component", () => {
   const mocks = [
     {
       request: {

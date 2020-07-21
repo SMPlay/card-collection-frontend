@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/client";
 
@@ -22,22 +22,25 @@ const App: React.FC = () => {
   const dataClient = useQuery(IS_AUTH);
 
   const [setRefreshToken] = useMutation(GET_REFRESH_TOKEN);
+  useEffect( () => {
+    setRefreshToken().then(() => {
+      client.writeQuery({
+        query: IS_AUTH,
+        data: {
+          isAuth: true
+        }
+      });
+    }).catch(() => {
+      client.writeQuery({
+        query: IS_AUTH,
+        data: {
+          isAuth: false
+        }
+      });
+    });
+  },[])
 
-  setRefreshToken().then(() => {
-    client.writeQuery({
-      query: IS_AUTH,
-      data: {
-        isAuth: true
-      }
-    });
-  }).catch(() => {
-    client.writeQuery({
-      query: IS_AUTH,
-      data: {
-        isAuth: false
-      }
-    });
-  });
+
 
   return (
     <Router>
