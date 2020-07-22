@@ -26,13 +26,22 @@ describe("login form component", () => {
 
   beforeEach(() => {
     props = {
-      loginValue: "test",
-      passwordValue: "test",
-      loginError: false,
-      passwordError: false,
-      onChangeLogin: jest.fn(),
-      onChangePassword: jest.fn(),
-      onSubmit: jest.fn(),
+      handleSubmit: jest.fn(),
+      handleChange: jest.fn(),
+      handleBlur: jest.fn(),
+      values: {
+        login: "test",
+        password: "test"
+      },
+      status: "",
+      errors: {
+        login: "",
+        password: ""
+      },
+      touched: {
+        login: false,
+        password: false
+      }
     }
   });
 
@@ -54,8 +63,7 @@ describe("login form component", () => {
         <Router>
           <LoginForm 
             {...props}
-            loginError
-            passwordError
+            status="error"
           />
         </Router>
       </MockedProvider>

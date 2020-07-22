@@ -3,6 +3,7 @@
 exports[`login form component should render 1`] = `
 <form
   className="makeStyles-root-1"
+  onSubmit={[MockFunction]}
 >
   
   <div
@@ -14,6 +15,8 @@ exports[`login form component should render 1`] = `
       <label
         className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
         data-shrink={true}
+        htmlFor="login"
+        id="login-label"
       >
         Логин
         <span
@@ -33,6 +36,7 @@ exports[`login form component should render 1`] = `
           autoFocus={false}
           className="MuiInputBase-input MuiOutlinedInput-input"
           disabled={false}
+          id="login"
           onAnimationStart={[Function]}
           onBlur={[Function]}
           onChange={[Function]}
@@ -64,6 +68,8 @@ exports[`login form component should render 1`] = `
       <label
         className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
         data-shrink={true}
+        htmlFor="password"
+        id="password-label"
       >
         Пароль
         <span
@@ -83,6 +89,7 @@ exports[`login form component should render 1`] = `
           autoFocus={false}
           className="MuiInputBase-input MuiOutlinedInput-input"
           disabled={false}
+          id="password"
           onAnimationStart={[Function]}
           onBlur={[Function]}
           onChange={[Function]}
@@ -116,7 +123,6 @@ exports[`login form component should render 1`] = `
       className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
       disabled={false}
       onBlur={[Function]}
-      onClick={[Function]}
       onDragLeave={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -128,7 +134,7 @@ exports[`login form component should render 1`] = `
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       tabIndex={0}
-      type="button"
+      type="submit"
     >
       <span
         className="MuiButton-label"
