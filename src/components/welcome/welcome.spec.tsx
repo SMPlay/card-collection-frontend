@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 
 import { Welcome } from './welcome';
 
-describe("Welcome component", () => {
+describe("welcome component", () => {
   it("should render", () => {
     const tree = renderer.create(
       <Welcome/>

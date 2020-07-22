@@ -5,7 +5,7 @@ import { mount } from "enzyme";
 
 import { Collections, CollectionsProps } from "./collections";
 
-describe("Collections component", () => {
+describe("collections component", () => {
   let props: CollectionsProps;
   let component;
   beforeEach(() => {

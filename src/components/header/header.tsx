@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       display: "flex",
+      flexGrow: 1,
     },
     content: {
       flexGrow: 1,
@@ -57,7 +58,10 @@ const allPages = [
   { pageName: "Главная", url: "/" },
   { pageName: "Коллекции", url: "/collections" },
   { pageName: "Галерея", url: "/gallery" },
-  { pageName: "Аукцион", url: "/auction" }
+  { pageName: "Аукцион", url: "/auction" },
+  { pageName: "Регистрация", url: "/registration" },
+  { pageName: "Вход", url: "/login" },
+  { pageName: "Восстановление пароля", url:"/reset-password" }
 ];
 
 interface CollectionsNameData {
