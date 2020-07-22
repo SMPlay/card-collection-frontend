@@ -30,7 +30,11 @@ export const LoginPage: React.FC = () => {
         .string()
         .strict(true)
         .required("Это обязательное поле!")
-        .trim("Поле не должно содержать пробелы!"),
+        .trim("Поле не должно содержать пробелы!")
+        .matches(
+          /^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$/,
+          "Недопустимые символы в начале или конце"
+        ),
       password: yup
         .string()
         .strict(true)

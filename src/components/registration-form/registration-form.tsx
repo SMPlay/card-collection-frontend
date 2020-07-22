@@ -1,9 +1,9 @@
 import React from "react";
-import { TextField, Box, Button, Typography } from "@material-ui/core";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
-import { Link } from "react-router-dom";
+import { Box, Button, TextField } from "@material-ui/core";
 
 import { AuthType } from "../../types/AuthType";
+import { setError } from "./set-error";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme: Theme) =>
         width: "60ch",
       },
     },
-    loginField: {
+    registrationField: {
       display: "flex",
       flexDirection: "column",
     },
@@ -25,24 +25,16 @@ const useStyles = makeStyles((theme: Theme) =>
       flexDirection: "row",
       alignItems: "center",
     },
-    navLink: {
-      marginLeft: 10,
-      color: "#000",
-      opacity: 1,
-      transition: "opacity .2s ease",
-      "&:hover": {
-        opacity: 0.8,
-      },
-    },
   })
 );
 
-interface Values {
+export interface Values {
   login?: string | boolean;
   password?: string | boolean;
+  confirmPassword?: string | boolean;
 }
 
-export const LoginForm: React.FC<AuthType<Values>> = ({
+export const RegistrationForm: React.FC<AuthType<Values>> = ({
   handleSubmit,
   handleChange,
   handleBlur,
@@ -55,14 +47,7 @@ export const LoginForm: React.FC<AuthType<Values>> = ({
 
   return (
     <form onSubmit={handleSubmit} className={styles.root}>
-      {status === "error" ? (
-        <Typography variant="h4" component="h2">
-          Неправильный логин и/или пароль
-        </Typography>
-      ) : (
-        ""
-      )}
-      <Box m={2} className={styles.loginField}>
+      <Box m={2} className={styles.registrationField}>
         <TextField
           id="login"
           value={values.login}
@@ -72,9 +57,9 @@ export const LoginForm: React.FC<AuthType<Values>> = ({
           placeholder="Введите логин"
           variant="outlined"
           error={
-            (errors.login && touched.login) || status === "error" ? true : false
+            (errors.login) || status ? true : false
           }
-          helperText={errors.login}
+          helperText={setError(status, errors?.login, "Такой пользователь уже существует")}
           required
           disabled={status === "loading"}
         />
@@ -87,29 +72,34 @@ export const LoginForm: React.FC<AuthType<Values>> = ({
           placeholder="Введите пароль"
           variant="outlined"
           type="password"
-          error={
-            (errors.password && touched.password) || status === "error"
-              ? true
-              : false
-          }
+          error={errors.password ? true : false}
           helperText={errors.password}
           required
           disabled={status === "loading"}
         />
-      </Box>
-      <Box className={styles.buttonsField}>
-        <Button
-          variant="contained"
-          color="primary"
-          type="submit"
+        <TextField
+          id="confirmPassword"
+          value={values.confirmPassword}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          label="Пароль ещё раз"
+          placeholder="Введите пароль снова"
+          variant="outlined"
+          type="password"
+          error={errors.confirmPassword ? true : false}
+          helperText={errors.confirmPassword}
+          required
           disabled={status === "loading"}
-        >
-          Войти
-        </Button>
-        <Link className={styles.navLink} to="/reset-password">
-          Забыли пароль?
-        </Link>
+        />
       </Box>
+      <Button
+        variant="contained"
+        color="primary"
+        type="submit"
+        disabled={status === "loading"}
+      >
+        Регистрация
+      </Button>
     </form>
   );
 };
