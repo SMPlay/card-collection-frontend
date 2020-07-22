@@ -1,75 +1,72 @@
-import React, { useState } from "react";
+import React from "react";
 import { Container } from "@material-ui/core";
 import { useMutation } from "@apollo/client";
 import { useHistory } from "react-router-dom";
+import { useFormik } from "formik";
+import * as yup from "yup";
 
 import { client } from "../store";
 import { LoginForm } from "../components";
 import { LOGIN, IS_AUTH } from "../queries";
 
 export const LoginPage: React.FC = () => {
-  const [loginValue, setLoginValue] = useState<string>("");
-  const [passwordValue, setPasswordValue] = useState<string>("");
-  const [loginError, setLoginError] = useState<boolean>(false);
-  const [passwordError, setPasswordError] = useState<boolean>(false);
-  const [goLogin] = useMutation(LOGIN, { errorPolicy: "all" });
+  const [loginQuery] = useMutation(LOGIN);
   const history = useHistory();
+  const {
+    handleSubmit,
+    handleChange,
+    handleBlur,
+    values,
+    errors,
+    touched,
+    status,
+  } = useFormik({
+    initialValues: {
+      login: "",
+      password: "",
+    },
+    validationSchema: yup.object({
+      login: yup
+        .string()
+        .strict(true)
+        .required("Это обязательное поле!")
+        .trim("Поле не должно содержать пробелы!"),
+      password: yup
+        .string()
+        .strict(true)
+        .required("Это обязательное поле!")
+        .trim("Поле не должно содержать пробелы!"),
+    }),
+    onSubmit: async ({ login, password }, FormikBag) => {
+      try {
+        FormikBag.setStatus("loading");
+        await loginQuery({ variables: { login, password } });
 
-  const onChangeLogin = (value: string) => {
-    setLoginValue(value);
-    setLoginError(false);
-  }
+        client.writeQuery({
+          query: IS_AUTH,
+          data: {
+            isAuth: true,
+          },
+        });
 
-  const onChangePassword = (value: string) => {
-    setPasswordValue(value);
-    setPasswordError(false);
-  }
-
-  const onSubmit = async (login: string, password: string) => {
-    if (login === "" && password === "") {
-      setLoginError(true);
-      setPasswordError(true);
-      return;
-    } else if (password === "") {
-      setPasswordError(true);
-      return;
-    } else if (login === "") {
-      setLoginError(true);
-      return;
-    }
-
-    const { errors } = await goLogin({ variables: { login, password } });
-    if (errors !== undefined) {
-      const [error] = errors;
-
-      if (error?.extensions?.exception.status === 403) {
-        setLoginError(true);
-        setPasswordError(true);
+        history.push("/");
+      } catch (e) {
+        FormikBag.setStatus("error");
       }
-      return;
-    }
-
-    client.writeQuery({
-      query: IS_AUTH,
-      data: {
-        isAuth: true
-      }
-    });
-
-    history.push("/");
-  };
+    },
+  });
 
   return (
     <main>
       <Container>
         <LoginForm
-          loginValue={loginValue}
-          passwordValue={passwordValue}
-          loginError={loginError}
-          passwordError={passwordError}
-          onChangeLogin={onChangeLogin}
-          onChangePassword={onChangePassword}
-          onSubmit={onSubmit}/>
+          values={values}
+          handleSubmit={handleSubmit}
+          handleChange={handleChange}
+          handleBlur={handleBlur}
+          status={status}
+          errors={errors}
+          touched={touched}/>
       </Container>
     </main>
   );
