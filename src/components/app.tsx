@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 import { useQuery, useMutation } from "@apollo/client";
 
 import { client } from "../store";
-import { IS_AUTH, GET_REFRESH_TOKEN } from "../queries";
-import { HomePage, CollectionPage, LoginPage, RegistrationPage } from "../pages";
 import { Header } from "./header/header";
+import { GET_REFRESH_TOKEN, IS_AUTH } from "../queries";
+import { CollectionPage, HomePage, LoginPage, RegistrationPage } from "../pages";
 
 interface AuthData {
   isAuth: boolean;

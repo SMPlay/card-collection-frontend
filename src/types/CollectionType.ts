@@ -4,4 +4,5 @@ export interface CollectionType {
   id: string;
   cardsCount: number;
   release: number;
+  cardCollectionName?: string
 }
