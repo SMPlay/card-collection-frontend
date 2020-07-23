@@ -4,7 +4,14 @@ import { useQuery, useMutation } from "@apollo/client";
 
 import { client } from "../store";
 import { IS_AUTH, GET_REFRESH_TOKEN } from "../queries";
-import { HomePage, CollectionPage, LoginPage, RegistrationPage } from "../pages";
+import { 
+  HomePage,
+  CollectionPage,
+  LoginPage,
+  RegistrationPage,
+  ConfirmPage,
+  ConfirmSuccessPage
+} from "../pages";
 import { Header } from "./header/header";
 
 interface AuthData {
@@ -19,7 +26,7 @@ const NonAuthPaths = () => (
 )
 
 const App: React.FC = () => {
-  const dataClient = useQuery(IS_AUTH);
+  const dataClient = useQuery<AuthData>(IS_AUTH);
 
   const [setRefreshToken] = useMutation(GET_REFRESH_TOKEN);
   useEffect( () => {
@@ -40,14 +47,14 @@ const App: React.FC = () => {
     });
   },[])
 
-
-
   return (
     <Router>
       <Header/>
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/collections/:id" component={CollectionPage}/>
+        <Route exact path="/confirm/:token" component={ConfirmPage}/>
+        <Route exact path="/confirm-success" component={ConfirmSuccessPage}/>
         {
           !dataClient?.data?.isAuth
             ? <NonAuthPaths/>
