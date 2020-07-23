@@ -5,12 +5,10 @@ import { Container, Grid } from "@material-ui/core";
 import { useParams } from "react-router-dom";
 
 import { GET_COLLECTION_AND_CARDS } from "../queries/get-collection-and-cards";
-import { CollectionCard } from "../components/collection/collection-card/collection-card";
+import { CardsPagination, CollectionCard, CollectionDescription } from "../components";
 import { ReceivedError } from "../components/recieved-error/received-error";
 import { Loading } from "../components/loading/loading";
 import { CardType } from "../types/CardType";
-import { CollectionDescription } from "../components/collection/collection-description/collection-description";
-import { CardsPagination } from "../components/collection/cards-pagination/cards-pagination";
 import { GET_CARDS } from "../queries/get-cards";
 
 const useStyles = makeStyles(() =>
