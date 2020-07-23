@@ -59,7 +59,7 @@ export const CollectionPage = () => {
     variables: {id}
   });
 
-  const [ getCards, {data: cardsData} ] = useLazyQuery<CardsQueryData, CardsQueryVariables>(GET_CARDS);
+  const [ getCards, {data: cardsData, loading: loadingCards} ] = useLazyQuery<CardsQueryData, CardsQueryVariables>(GET_CARDS);
 
   const onSelectPage = (event: ChangeEvent<unknown>, page: number) => {
     getCards({
@@ -70,6 +70,7 @@ export const CollectionPage = () => {
       }
     })
   };
+
   useEffect(() => {
     if(cardsData?.cards){
       setCards(cardsData.cards);
@@ -77,6 +78,13 @@ export const CollectionPage = () => {
       setCards(collectionAndCardsData.cardCollection.cards)
     }
   }, [cardsData, collectionAndCardsData]);
+
+  useEffect(() => {
+    if(collectionAndCardsData?.cardCollection.cards){
+      setCards(collectionAndCardsData?.cardCollection.cards);
+    }
+  }, [ collectionAndCardsData?.cardCollection.cardCollectionName ])
+
   return (
     <Container>
       {loadingCollectionAndCards && <Grid item><Loading/></Grid>}
@@ -85,7 +93,7 @@ export const CollectionPage = () => {
       {collectionAndCardsData && !loadingCollectionAndCards && <CollectionDescription description={collectionAndCardsData.cardCollection}/>}
 
       <Grid className={styles.root} spacing={2} container>
-        {!loadingCollectionAndCards &&
+        {!loadingCollectionAndCards && !loadingCards &&
         cards.map(card => (
           <Grid item xs={3} key={card.id}>
             <CollectionCard {...card}/>
