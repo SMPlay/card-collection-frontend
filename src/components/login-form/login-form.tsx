@@ -55,9 +55,9 @@ export const LoginForm: React.FC<AuthType<Values>> = ({
 
   return (
     <form onSubmit={handleSubmit} className={styles.root}>
-      {status === "error" ? (
+      {status?.error ? (
         <Typography variant="h4" component="h2">
-          Неправильный логин и/или пароль
+          {status.error}
         </Typography>
       ) : (
         ""
@@ -72,11 +72,11 @@ export const LoginForm: React.FC<AuthType<Values>> = ({
           placeholder="Введите логин"
           variant="outlined"
           error={
-            (errors.login && touched.login) || status === "error" ? true : false
+            (errors.login && touched.login) || status?.error === "Ошибка сервера" ? true : false
           }
           helperText={errors.login}
           required
-          disabled={status === "loading"}
+          disabled={status?.loading}
         />
         <TextField
           id="password"
@@ -88,13 +88,13 @@ export const LoginForm: React.FC<AuthType<Values>> = ({
           variant="outlined"
           type="password"
           error={
-            (errors.password && touched.password) || status === "error"
+            (errors.password)
               ? true
               : false
           }
           helperText={errors.password}
           required
-          disabled={status === "loading"}
+          disabled={status?.loading}
         />
       </Box>
       <Box className={styles.buttonsField}>
@@ -102,7 +102,7 @@ export const LoginForm: React.FC<AuthType<Values>> = ({
           variant="contained"
           color="primary"
           type="submit"
-          disabled={status === "loading"}
+          disabled={status?.loading}
         >
           Войти
         </Button>

@@ -1,34 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Welcome component should render 1`] = `
-Array [
-  <h1
-    className="MuiTypography-root MuiTypography-h2"
-  >
-    Супергеройские коллекции
-  </h1>,
-  <article
-    className="makeStyles-welcome-2"
-  >
-    <h3
-      className="MuiTypography-root MuiTypography-h3"
-    >
-      Добро пожаловать на наш сайт с коллекциями карт!
-    </h3>
-    <p
-      className="MuiTypography-root makeStyles-mainMarginTop-1 MuiTypography-body1"
-    >
-      Здесь вы можете просматривать все ваши любимые карточки из детства из различных коллекций. Также на сайте реализован аукцион, на котором вы можете приобрести карточки у других пользователей.
-    </p>
-    <p
-      className="MuiTypography-root makeStyles-mainMarginTop-1 MuiTypography-body1"
-    >
-      Для того, чтобы воспользоваться аукционом, достаточно зарегистрироваться или войти и перейти во вкладку "Аукцион" в меню.
-    </p>
-  </article>,
-]
-`;
-
 exports[`welcome component should render 1`] = `
 Array [
   <h1

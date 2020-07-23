@@ -1,9 +1,8 @@
 import React from "react";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
-import { Box, Button, TextField } from "@material-ui/core";
+import { Box, Button, TextField, Typography } from "@material-ui/core";
 
 import { AuthType } from "../../types/AuthType";
-import { setError } from "./set-error";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -47,6 +46,13 @@ export const RegistrationForm: React.FC<AuthType<Values>> = ({
 
   return (
     <form onSubmit={handleSubmit} className={styles.root}>
+      {status?.error ? (
+        <Typography variant="h4" component="h2">
+          {status.error}
+        </Typography>
+      ) : (
+        ""
+      )}
       <Box m={2} className={styles.registrationField}>
         <TextField
           id="login"
@@ -57,11 +63,18 @@ export const RegistrationForm: React.FC<AuthType<Values>> = ({
           placeholder="Введите логин"
           variant="outlined"
           error={
-            (errors.login) || status ? true : false
+            errors.login ||
+            status?.error === "Такой пользователь уже существует"
+              ? true
+              : false
           }
-          helperText={setError(status, errors?.login, "Такой пользователь уже существует")}
+          helperText={
+            status?.error === "Такой пользователь уже существует"
+              ? status?.error
+              : ""
+          }
           required
-          disabled={status === "loading"}
+          disabled={status?.loading}
         />
         <TextField
           id="password"
@@ -75,7 +88,7 @@ export const RegistrationForm: React.FC<AuthType<Values>> = ({
           error={errors.password ? true : false}
           helperText={errors.password}
           required
-          disabled={status === "loading"}
+          disabled={status?.loading}
         />
         <TextField
           id="confirmPassword"
@@ -89,14 +102,14 @@ export const RegistrationForm: React.FC<AuthType<Values>> = ({
           error={errors.confirmPassword ? true : false}
           helperText={errors.confirmPassword}
           required
-          disabled={status === "loading"}
+          disabled={status?.loading}
         />
       </Box>
       <Button
         variant="contained"
         color="primary"
         type="submit"
-        disabled={status === "loading"}
+        disabled={status?.loading}
       >
         Регистрация
       </Button>

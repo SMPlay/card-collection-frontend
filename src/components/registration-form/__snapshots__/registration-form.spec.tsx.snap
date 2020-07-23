@@ -5,6 +5,7 @@ exports[`Registration from component should render 1`] = `
   className="makeStyles-root-1"
   onSubmit={[MockFunction]}
 >
+  
   <div
     className="MuiBox-root MuiBox-root-4 makeStyles-registrationField-2"
   >

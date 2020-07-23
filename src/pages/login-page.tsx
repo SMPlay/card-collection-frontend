@@ -8,6 +8,7 @@ import * as yup from "yup";
 import { client } from "../store";
 import { LoginForm } from "../components";
 import { LOGIN, IS_AUTH } from "../queries";
+import { errorDescriptor } from "../utils";
 
 export const LoginPage: React.FC = () => {
   const [loginQuery] = useMutation(LOGIN);
@@ -43,7 +44,10 @@ export const LoginPage: React.FC = () => {
     }),
     onSubmit: async ({ login, password }, FormikBag) => {
       try {
-        FormikBag.setStatus("loading");
+        FormikBag.setStatus({
+          loading: true,
+          error: ""
+        });
         await loginQuery({ variables: { login, password } });
 
         client.writeQuery({
@@ -55,7 +59,10 @@ export const LoginPage: React.FC = () => {
 
         history.push("/");
       } catch (e) {
-        FormikBag.setStatus("error");
+        FormikBag.setStatus({
+          loading: false,
+          error: errorDescriptor(e.massage)
+        });
       }
     },
   });

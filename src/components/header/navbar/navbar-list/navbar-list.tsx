@@ -62,7 +62,7 @@ export const NavbarList: React.FC<NavbarListProps> = ({
             </ListItem>
           ) : (
             collectionsName?.map((collection) => (
-              <Link to={`collections/${collection.id}`} key={collection.id}>
+              <Link to={`/collections/${collection.id}`} key={collection.id}>
                 <ListItem button className={classes.nested}>
                   <ListItemText classes={{ primary: classes.navlink }} primary={collection.name} />
                 </ListItem>

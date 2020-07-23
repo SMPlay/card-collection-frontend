@@ -7,6 +7,7 @@ import * as yup from "yup";
 
 import { RegistrationForm } from "../components";
 import { REGISTRATION_QUERY } from "../queries";
+import { errorDescriptor } from "../utils";
 
 export const RegistrationPage: React.FC = () => {
   const [registration] = useMutation(REGISTRATION_QUERY);
@@ -54,12 +55,18 @@ export const RegistrationPage: React.FC = () => {
     }),
     onSubmit: async ({ login, password }, FormikBag) => {
       try {
-        FormikBag.setStatus("loading");
+        FormikBag.setStatus({
+          loading: true,
+          error: ""
+        });
         await registration({ variables: { login, password } });
 
         history.push("/login");
       } catch (e) {
-        FormikBag.setStatus("error");
+        FormikBag.setStatus({
+          loading: false,
+          error: errorDescriptor(e.message)
+        });
       }
     },
   });

@@ -33,7 +33,10 @@ describe("login form component", () => {
         login: "test",
         password: "test"
       },
-      status: "",
+      status: {
+        loading: false,
+        error: ""
+      },
       errors: {
         login: "",
         password: ""
@@ -63,7 +66,7 @@ describe("login form component", () => {
         <Router>
           <LoginForm 
             {...props}
-            status="error"
+            status={{loading: false, error: "Неправильный логин и/или пароль"}}
           />
         </Router>
       </MockedProvider>
