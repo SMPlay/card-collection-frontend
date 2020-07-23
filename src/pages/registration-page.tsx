@@ -15,7 +15,6 @@ export const RegistrationPage: React.FC = () => {
   const {
     handleSubmit,
     handleChange,
-    handleBlur,
     values,
     errors,
     touched,
@@ -25,6 +24,7 @@ export const RegistrationPage: React.FC = () => {
       login: "",
       password: "",
       confirmPassword: "",
+      email: "",
     },
     validationSchema: yup.object({
       login: yup
@@ -38,6 +38,10 @@ export const RegistrationPage: React.FC = () => {
           /^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$/,
           "Недопустимые символы в начале или конце"
         ),
+      email: yup
+        .string()
+        .required()
+        .email("Неверный email"),
       password: yup
         .string()
         .strict(true)
@@ -53,13 +57,13 @@ export const RegistrationPage: React.FC = () => {
         then: yup.string().oneOf([yup.ref("password")], "Пароли не совпадают!"),
       }),
     }),
-    onSubmit: async ({ login, password }, FormikBag) => {
+    onSubmit: async ({ login, password, email }, FormikBag) => {
       try {
         FormikBag.setStatus({
           loading: true,
           error: ""
         });
-        await registration({ variables: { login, password } });
+        await registration({ variables: { login, password, email } });
 
         history.push("/login");
       } catch (e) {
@@ -78,10 +82,8 @@ export const RegistrationPage: React.FC = () => {
           values={values}
           handleSubmit={handleSubmit}
           handleChange={handleChange}
-          handleBlur={handleBlur}
           status={status}
           errors={errors}
-          touched={touched}
         />
       </Container>
     </main>

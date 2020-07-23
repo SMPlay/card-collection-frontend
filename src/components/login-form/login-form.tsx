@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-interface Values {
+export interface Values {
   login?: string | boolean;
   password?: string | boolean;
 }
@@ -45,11 +45,9 @@ interface Values {
 export const LoginForm: React.FC<AuthType<Values>> = ({
   handleSubmit,
   handleChange,
-  handleBlur,
   values,
   status,
   errors,
-  touched,
 }) => {
   const styles = useStyles();
 
@@ -67,13 +65,10 @@ export const LoginForm: React.FC<AuthType<Values>> = ({
           id="login"
           value={values.login}
           onChange={handleChange}
-          onBlur={handleBlur}
           label="Логин"
           placeholder="Введите логин"
           variant="outlined"
-          error={
-            (errors.login && touched.login) || status?.error === "Ошибка сервера" ? true : false
-          }
+          error={errors.login || status?.error ? true : false}
           helperText={errors.login}
           required
           disabled={status?.loading}
@@ -82,16 +77,11 @@ export const LoginForm: React.FC<AuthType<Values>> = ({
           id="password"
           value={values.password}
           onChange={handleChange}
-          onBlur={handleBlur}
           label="Пароль"
           placeholder="Введите пароль"
           variant="outlined"
           type="password"
-          error={
-            (errors.password)
-              ? true
-              : false
-          }
+          error={errors.password || status?.error ? true : false}
           helperText={errors.password}
           required
           disabled={status?.loading}

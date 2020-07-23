@@ -1,4 +1,4 @@
-export const errorDescriptor = (error: string) => {
+export const errorDescriptor = (error: string): string => {
   switch (error) {
     case "Failed to fetch":
       return "Ошибка сервера";
@@ -7,5 +7,9 @@ export const errorDescriptor = (error: string) => {
       return "Неправильный логин и/или пароль";
     case "User exists already!":
       return "Такой пользователь уже существует";
+    case "User with this email already exists":
+      return "Пользователь с такие email уже существует";
+    default:
+      return ""
   }
 }

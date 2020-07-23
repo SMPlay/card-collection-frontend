@@ -66,6 +66,57 @@ exports[`Registration from component should render 1`] = `
       className="MuiFormControl-root MuiTextField-root"
     >
       <label
+        className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+        data-shrink={false}
+        htmlFor="email"
+        id="email-label"
+      >
+        Email
+        <span
+          aria-hidden={true}
+          className="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+        >
+           
+          *
+        </span>
+      </label>
+      <div
+        className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+        onClick={[Function]}
+      >
+        <input
+          aria-invalid={false}
+          autoFocus={false}
+          className="MuiInputBase-input MuiOutlinedInput-input"
+          disabled={false}
+          id="email"
+          onAnimationStart={[Function]}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="Введите email"
+          required={true}
+          type="text"
+        />
+        <fieldset
+          aria-hidden={true}
+          className="PrivateNotchedOutline-root-5 MuiOutlinedInput-notchedOutline"
+        >
+          <legend
+            className="PrivateNotchedOutline-legendLabelled-7"
+          >
+            <span>
+              Email
+               *
+            </span>
+          </legend>
+        </fieldset>
+      </div>
+    </div>
+    <div
+      className="MuiFormControl-root MuiTextField-root"
+    >
+      <label
         className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
         data-shrink={true}
         htmlFor="password"

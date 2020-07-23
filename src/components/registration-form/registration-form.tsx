@@ -3,6 +3,7 @@ import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import { Box, Button, TextField, Typography } from "@material-ui/core";
 
 import { AuthType } from "../../types/AuthType";
+import { checkErrorByField } from "../../utils";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -29,6 +30,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export interface Values {
   login?: string | boolean;
+  email?: string | boolean;
   password?: string | boolean;
   confirmPassword?: string | boolean;
 }
@@ -36,11 +38,9 @@ export interface Values {
 export const RegistrationForm: React.FC<AuthType<Values>> = ({
   handleSubmit,
   handleChange,
-  handleBlur,
   values,
   status,
-  errors,
-  touched,
+  errors
 }) => {
   const styles = useStyles();
 
@@ -58,7 +58,6 @@ export const RegistrationForm: React.FC<AuthType<Values>> = ({
           id="login"
           value={values.login}
           onChange={handleChange}
-          onBlur={handleBlur}
           label="Логин"
           placeholder="Введите логин"
           variant="outlined"
@@ -69,9 +68,30 @@ export const RegistrationForm: React.FC<AuthType<Values>> = ({
               : false
           }
           helperText={
-            status?.error === "Такой пользователь уже существует"
+            checkErrorByField("regLogin", status?.error)
               ? status?.error
-              : ""
+              : errors.login
+          }
+          required
+          disabled={status?.loading}
+        />
+        <TextField
+          id="email"
+          value={values.email}
+          onChange={handleChange}
+          label="Email"
+          placeholder="Введите email"
+          variant="outlined"
+          error={
+            errors.email ||
+            status?.error === "Пользователь с такие email уже существует"
+              ? true
+              : false
+          }
+          helperText={
+            checkErrorByField("regEmail", status?.error)
+              ? status?.error
+              : errors.email 
           }
           required
           disabled={status?.loading}
@@ -80,7 +100,6 @@ export const RegistrationForm: React.FC<AuthType<Values>> = ({
           id="password"
           value={values.password}
           onChange={handleChange}
-          onBlur={handleBlur}
           label="Пароль"
           placeholder="Введите пароль"
           variant="outlined"
@@ -94,7 +113,6 @@ export const RegistrationForm: React.FC<AuthType<Values>> = ({
           id="confirmPassword"
           value={values.confirmPassword}
           onChange={handleChange}
-          onBlur={handleBlur}
           label="Пароль ещё раз"
           placeholder="Введите пароль снова"
           variant="outlined"

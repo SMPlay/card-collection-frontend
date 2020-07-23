@@ -16,10 +16,8 @@ export const LoginPage: React.FC = () => {
   const {
     handleSubmit,
     handleChange,
-    handleBlur,
     values,
     errors,
-    touched,
     status,
   } = useFormik({
     initialValues: {
@@ -61,7 +59,7 @@ export const LoginPage: React.FC = () => {
       } catch (e) {
         FormikBag.setStatus({
           loading: false,
-          error: errorDescriptor(e.massage)
+          error: errorDescriptor(e.message)
         });
       }
     },
@@ -74,10 +72,8 @@ export const LoginPage: React.FC = () => {
           values={values}
           handleSubmit={handleSubmit}
           handleChange={handleChange}
-          handleBlur={handleBlur}
           status={status}
-          errors={errors}
-          touched={touched}/>
+          errors={errors}/>
       </Container>
     </main>
   );

@@ -11,22 +11,19 @@ describe("Registration from component", () => {
     props = {
       handleSubmit: jest.fn(),
       handleChange: jest.fn(),
-      handleBlur: jest.fn(),
       values: {
         login: "test",
         password: "test",
         confirmPassword: "test"
       },
-      status: "",
+      status: {
+        loading: false,
+        error: "",
+      },
       errors: {
         login: "",
         password: "",
         confirmPassword: "test"
-      },
-      touched: {
-        login: false,
-        password: false,
-        confirmPassword: false
       }
     }
   });

@@ -5,11 +5,12 @@ import { MockedProvider } from "@apollo/client/testing";
 import { BrowserRouter as Router } from "react-router-dom";
 import { mount } from "enzyme";
 
-import { LoginForm, LoginFormProps } from "./login-form";
+import { LoginForm, Values } from "./login-form";
 import { LOGIN } from "../../queries";
+import { AuthType } from "../../types/AuthType";
 
 describe("login form component", () => {
-  let props: LoginFormProps;
+  let props: AuthType<Values>;
   const mocksInitial = [
     {
       request: {
@@ -28,7 +29,6 @@ describe("login form component", () => {
     props = {
       handleSubmit: jest.fn(),
       handleChange: jest.fn(),
-      handleBlur: jest.fn(),
       values: {
         login: "test",
         password: "test"
@@ -41,10 +41,6 @@ describe("login form component", () => {
         login: "",
         password: ""
       },
-      touched: {
-        login: false,
-        password: false
-      }
     }
   });
 
