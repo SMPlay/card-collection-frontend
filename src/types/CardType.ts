@@ -6,5 +6,5 @@ export interface CardType {
   rarity: string;
   need: number;
   have: number;
-  number: number;
+  number: string;
 }
