@@ -1,5 +1,6 @@
 import React, { ChangeEvent } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+
 import Pagination from '@material-ui/lab/Pagination';
 
 const useStyles = makeStyles((theme) => ({
@@ -10,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-interface CardsPaginationProps {
+export interface CardsPaginationProps {
   count: number,
   onChange: (event: ChangeEvent<unknown>, value: number) => void
 }

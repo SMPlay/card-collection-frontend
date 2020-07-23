@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
-import { gql, useLazyQuery, useMutation, useQuery } from "@apollo/client";
+import { useLazyQuery, useQuery } from "@apollo/client";
 import { Container, Grid } from "@material-ui/core";
 import { useParams } from "react-router-dom";
 
@@ -52,6 +52,7 @@ export const CollectionPage = () => {
   const styles = useStyles();
   const {id} = useParams();
   const [cards, setCards] = useState<CardType[]>([]);
+
   const {
     data: collectionAndCardsData,
     loading: loadingCollectionAndCards,

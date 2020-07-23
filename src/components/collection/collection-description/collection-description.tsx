@@ -1,19 +1,10 @@
 import React, { FC } from "react";
-import { CollectionType } from "../../../types/CollectionType";
-import {
-  Card,
-  CardActionArea,
-  CardMedia,
-  Container,
-  createStyles,
-  Grid,
-  Paper,
-  Theme,
-  Typography
-} from "@material-ui/core";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 
-interface CollectionDescriptionProps {
+import { CollectionType } from "../../../types/CollectionType";
+import { Card, CardMedia, Grid, Typography } from "@material-ui/core";
+
+export interface CollectionDescriptionProps {
   description: CollectionType
 }
 
@@ -21,8 +12,6 @@ const useStyles = makeStyles(
   {
     card: {
       width: 300
-    },
-    description: {
     }
   }
 );
@@ -46,7 +35,7 @@ export const CollectionDescription: FC<CollectionDescriptionProps> = ({descripti
       </Grid>
 
 
-      <Grid item className={styles.description}>
+      <Grid item>
         <Typography variant="h5" component="h2">
           Название: <b>{name}</b>
         </Typography>
