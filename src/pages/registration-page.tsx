@@ -65,7 +65,7 @@ export const RegistrationPage: React.FC = () => {
         });
         await registration({ variables: { login, password, email } });
 
-        history.push("/login");
+        history.push("/confirm");
       } catch (e) {
         FormikBag.setStatus({
           loading: false,

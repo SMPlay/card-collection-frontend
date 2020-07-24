@@ -53,8 +53,8 @@ const App: React.FC = () => {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/collections/:id" component={CollectionPage}/>
-        <Route exact path="/confirm/:token" component={ConfirmPage}/>
-        <Route exact path="/confirm-success" component={ConfirmSuccessPage}/>
+        <Route exact path="/confirm" component={ConfirmPage}/>
+        <Route exact path="/confirm/:token" component={ConfirmSuccessPage}/>
         {
           !dataClient?.data?.isAuth
             ? <NonAuthPaths/>

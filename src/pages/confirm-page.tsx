@@ -6,7 +6,8 @@ export const ConfirmPage = () => {
     <main>
       <Container>
         <Typography variant="h2" component="h1">
-          Ваша аккаунт подтвержден!
+          Перейдите по ссылке, которая пришла к вам на почту,
+          чтобы активировать аккаунт
         </Typography>
       </Container>
     </main>

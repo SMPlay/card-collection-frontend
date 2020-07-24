@@ -9,6 +9,8 @@ export const errorDescriptor = (error: string): string => {
       return "Такой пользователь уже существует";
     case "User with this email already exists":
       return "Пользователь с такие email уже существует";
+    case "This token does not exist!":
+      return "Этот токен недействителен!";
     default:
       return ""
   }
