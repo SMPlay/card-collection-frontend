@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`collections component should render 1`] = `
+<div
+  className="MuiGrid-root makeStyles-root-1 MuiGrid-container MuiGrid-spacing-xs-2"
+>
+  <div
+    className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3"
+  >
+    <a
+      href="/collections/test"
+      onClick={[Function]}
+    >
+      <div
+        className="MuiPaper-root MuiCard-root MuiPaper-elevation1 MuiPaper-rounded"
+      >
+        <button
+          className="MuiButtonBase-root MuiCardActionArea-root"
+          disabled={false}
+          onBlur={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <img
+            alt="test"
+            className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
+            height="400"
+            src="test"
+            title="test"
+          />
+          <div
+            className="MuiCardContent-root"
+          >
+            <h2
+              className="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"
+            >
+              test
+            </h2>
+          </div>
+          <span
+            className="MuiCardActionArea-focusHighlight"
+          />
+        </button>
+        <button
+          className="MuiButtonBase-root MuiCardActionArea-root makeStyles-metaText-2"
+          disabled={false}
+          onBlur={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <h5
+            className="MuiTypography-root MuiTypography-h6"
+          >
+            Колличество карт: 
+            1
+          </h5>
+          <h5
+            className="MuiTypography-root MuiTypography-h6"
+          >
+            Год выпуска: 
+            1
+          </h5>
+          <span
+            className="MuiCardActionArea-focusHighlight"
+          />
+        </button>
+      </div>
+    </a>
+  </div>
+</div>
+`;
