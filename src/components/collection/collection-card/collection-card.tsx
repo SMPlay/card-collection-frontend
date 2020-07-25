@@ -4,7 +4,6 @@ import { Card, CardActionArea, CardContent, CardMedia, createStyles, Theme, Typo
 
 import { CardType } from "../../../types/CardType";
 
-
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     metaText: {

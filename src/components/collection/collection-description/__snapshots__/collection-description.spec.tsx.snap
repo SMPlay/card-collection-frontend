@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CollectionDescription component should render 1`] = `
+<div
+  className="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"
+>
+  <div
+    className="MuiGrid-root MuiGrid-item"
+  >
+    <div
+      className="MuiPaper-root MuiCard-root makeStyles-card-1 MuiPaper-elevation1 MuiPaper-rounded"
+    >
+      <img
+        alt="test"
+        className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
+        height="450"
+        src="test"
+        title="test"
+      />
+    </div>
+  </div>
+  <div
+    className="MuiGrid-root MuiGrid-item"
+  >
+    <h2
+      className="MuiTypography-root MuiTypography-h5"
+    >
+      Название: 
+      <b>
+        test
+      </b>
+    </h2>
+    <h2
+      className="MuiTypography-root MuiTypography-h5"
+    >
+      Количество карт в коллекции: 
+      <b>
+        0
+      </b>
+    </h2>
+    <h2
+      className="MuiTypography-root MuiTypography-h5"
+    >
+      Дата выпуска: 
+      <b>
+        0
+      </b>
+    </h2>
+  </div>
+</div>
+`;

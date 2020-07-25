@@ -54,7 +54,7 @@ export const RegistrationPage: React.FC = () => {
           "Минимум одна буква, одно число и один из символов: '@$!%*#?&'"
         ),
       confirmPassword: yup.string().when("password", {
-        is: (value) => (value && value.length > 0 ? true : false),
+        is: (value) => (value && value.length >= 8 ? true : false),
         then: yup.string().oneOf([yup.ref("password")], "Пароли не совпадают!"),
       }),
     }),

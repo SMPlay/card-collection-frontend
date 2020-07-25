@@ -1,10 +1,10 @@
 import React from "react";
 import { create } from "react-test-renderer";
 
-import { ResetPasswordEmail, Values } from "./reset-password-email";
+import { NewPasswordForm, Values } from "./new-password-form";
 import { FormikType } from "../../../types/FormikType";
 
-describe("ResetPasswordEmail compoennt", () => {
+describe("NewPasswordForm component", () => {
   let props: FormikType<Values>;
 
   beforeEach(() => {
@@ -12,19 +12,22 @@ describe("ResetPasswordEmail compoennt", () => {
       handleSubmit: jest.fn(),
       handleChange: jest.fn(),
       values: {
-        email: "test",
+        newPassword: "test",
+        confirmNewPassword: "test"
       },
       status: {
         loading: false,
         error: "",
       },
       errors: {
-        email: "",
+        newPassword: "",
+        confirmNewPassword: ""
       }
     }
   });
+
   it("should render", () => {
-    const tree = create(<ResetPasswordEmail {...props}/>).toJSON();
+    const tree = create(<NewPasswordForm {...props}/>).toJSON();
 
     expect(tree).toMatchSnapshot();
   });

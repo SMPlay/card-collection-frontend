@@ -7,7 +7,7 @@ exports[`Registration from component should render 1`] = `
 >
   
   <div
-    className="MuiBox-root MuiBox-root-4 makeStyles-registrationField-2"
+    className="MuiBox-root MuiBox-root-3 makeStyles-registrationField-2"
   >
     <div
       className="MuiFormControl-root MuiTextField-root"
@@ -48,10 +48,10 @@ exports[`Registration from component should render 1`] = `
         />
         <fieldset
           aria-hidden={true}
-          className="PrivateNotchedOutline-root-5 MuiOutlinedInput-notchedOutline"
+          className="PrivateNotchedOutline-root-4 MuiOutlinedInput-notchedOutline"
         >
           <legend
-            className="PrivateNotchedOutline-legendLabelled-7 PrivateNotchedOutline-legendNotched-8"
+            className="PrivateNotchedOutline-legendLabelled-6 PrivateNotchedOutline-legendNotched-7"
           >
             <span>
               Логин
@@ -100,10 +100,10 @@ exports[`Registration from component should render 1`] = `
         />
         <fieldset
           aria-hidden={true}
-          className="PrivateNotchedOutline-root-5 MuiOutlinedInput-notchedOutline"
+          className="PrivateNotchedOutline-root-4 MuiOutlinedInput-notchedOutline"
         >
           <legend
-            className="PrivateNotchedOutline-legendLabelled-7"
+            className="PrivateNotchedOutline-legendLabelled-6"
           >
             <span>
               Email
@@ -152,10 +152,10 @@ exports[`Registration from component should render 1`] = `
         />
         <fieldset
           aria-hidden={true}
-          className="PrivateNotchedOutline-root-5 MuiOutlinedInput-notchedOutline"
+          className="PrivateNotchedOutline-root-4 MuiOutlinedInput-notchedOutline"
         >
           <legend
-            className="PrivateNotchedOutline-legendLabelled-7 PrivateNotchedOutline-legendNotched-8"
+            className="PrivateNotchedOutline-legendLabelled-6 PrivateNotchedOutline-legendNotched-7"
           >
             <span>
               Пароль
@@ -206,10 +206,10 @@ exports[`Registration from component should render 1`] = `
         />
         <fieldset
           aria-hidden={true}
-          className="PrivateNotchedOutline-root-5 MuiOutlinedInput-notchedOutline"
+          className="PrivateNotchedOutline-root-4 MuiOutlinedInput-notchedOutline"
         >
           <legend
-            className="PrivateNotchedOutline-legendLabelled-7 PrivateNotchedOutline-legendNotched-8"
+            className="PrivateNotchedOutline-legendLabelled-6 PrivateNotchedOutline-legendNotched-7"
           >
             <span>
               Пароль ещё раз

@@ -8,7 +8,7 @@ import { ResetPasswordEmail } from "../components";
 import { RESET_PASSWORD_QUERY } from "../queries";
 import { errorDescriptor } from "../utils";
 
-export const ResetPassword = () => {
+export const ResetPassword: React.FC = () => {
   const [success, setSuccess] = useState<boolean>(false);
   const [resetPasswordQuery] = useMutation(RESET_PASSWORD_QUERY);
   const { handleSubmit, handleChange, values, errors, status } = useFormik({

@@ -11,7 +11,8 @@ import {
   RegistrationPage,
   ConfirmPage,
   ConfirmSuccessPage,
-  ResetPassword
+  ResetPassword,
+  NewPasswordPage
 } from "../pages";
 import { Header } from "./header/header";
 
@@ -24,6 +25,7 @@ const NonAuthPaths = () => (
     <Route exact path="/login" component={LoginPage}/>
     <Route exact path="/registration" component={RegistrationPage}/>
     <Route exact path="/reset-password" component={ResetPassword}/>
+    <Route exact path="/resetPassword/:token" component={NewPasswordPage}/>
   </>
 );
 

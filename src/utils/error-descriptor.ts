@@ -13,6 +13,8 @@ export const errorDescriptor = (error: string): string => {
       return "Пользователя с таким email не существует";
     case "This token does not exist!":
       return "Этот токен недействителен!";
+    case "This token does not exist!":
+      return "Эта ссылка больше недействительна";
     default:
       return ""
   }
