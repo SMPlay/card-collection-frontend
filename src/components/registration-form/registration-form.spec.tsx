@@ -2,10 +2,10 @@ import React from "react";
 import { create } from "react-test-renderer";
 
 import { RegistrationForm, Values } from "./registration-form";
-import { AuthType } from "../../types/AuthType";
+import { FormikType } from "../../types/FormikType";
 
 describe("Registration from component", () => {
-  let props: AuthType<Values>;
+  let props: FormikType<Values>;
 
   beforeEach(() => {
     props = {

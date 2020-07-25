@@ -5,3 +5,5 @@ export { IS_AUTH } from "./is-auth";
 export { GET_REFRESH_TOKEN } from './get-refresh-token';
 export { REGISTRATION_QUERY } from "./registration-query";
 export { CONFIRM_USER } from "./confirm-user";
+export { RESET_PASSWORD_QUERY } from "./reset-password-query";
+export { SET_NEW_PASSWORD } from "./set-new-password";

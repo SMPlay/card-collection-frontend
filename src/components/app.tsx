@@ -10,7 +10,8 @@ import {
   LoginPage,
   RegistrationPage,
   ConfirmPage,
-  ConfirmSuccessPage
+  ConfirmSuccessPage,
+  ResetPassword
 } from "../pages";
 import { Header } from "./header/header";
 
@@ -22,8 +23,9 @@ const NonAuthPaths = () => (
   <>
     <Route exact path="/login" component={LoginPage}/>
     <Route exact path="/registration" component={RegistrationPage}/>
+    <Route exact path="/reset-password" component={ResetPassword}/>
   </>
-)
+);
 
 const App: React.FC = () => {
   const dataClient = useQuery<AuthData>(IS_AUTH);
@@ -45,7 +47,7 @@ const App: React.FC = () => {
         }
       });
     });
-  },[])
+  }, []);
 
   return (
     <Router>

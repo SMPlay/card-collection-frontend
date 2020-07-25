@@ -3,7 +3,7 @@ import { TextField, Box, Button, Typography } from "@material-ui/core";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 
-import { AuthType } from "../../types/AuthType";
+import { FormikType } from "../../types/FormikType";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -42,7 +42,7 @@ export interface Values {
   password?: string | boolean;
 }
 
-export const LoginForm: React.FC<AuthType<Values>> = ({
+export const LoginForm: React.FC<FormikType<Values>> = ({
   handleSubmit,
   handleChange,
   values,

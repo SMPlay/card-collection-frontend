@@ -17,7 +17,6 @@ export const RegistrationPage: React.FC = () => {
     handleChange,
     values,
     errors,
-    touched,
     status,
   } = useFormik({
     initialValues: {
@@ -40,7 +39,9 @@ export const RegistrationPage: React.FC = () => {
         ),
       email: yup
         .string()
-        .required()
+        .strict(true)
+        .required("Это обязательное поле")
+        .trim("В этом поле не должно быть пробелов!")
         .email("Неверный email"),
       password: yup
         .string()
@@ -61,7 +62,7 @@ export const RegistrationPage: React.FC = () => {
       try {
         FormikBag.setStatus({
           loading: true,
-          error: ""
+          error: "",
         });
         await registration({ variables: { login, password, email } });
 
@@ -69,7 +70,7 @@ export const RegistrationPage: React.FC = () => {
       } catch (e) {
         FormikBag.setStatus({
           loading: false,
-          error: errorDescriptor(e.message)
+          error: errorDescriptor(e.message),
         });
       }
     },

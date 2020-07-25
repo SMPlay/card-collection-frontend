@@ -3,7 +3,7 @@ interface Status {
   error: string;
 }
 
-export interface AuthType<T> {
+export interface FormikType<T> {
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   handleChange: (e: React.ChangeEvent<any>) => void;
   values: T;

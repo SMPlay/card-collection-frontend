@@ -7,10 +7,10 @@ import { mount } from "enzyme";
 
 import { LoginForm, Values } from "./login-form";
 import { LOGIN } from "../../queries";
-import { AuthType } from "../../types/AuthType";
+import { FormikType } from "../../types/FormikType";
 
 describe("login form component", () => {
-  let props: AuthType<Values>;
+  let props: FormikType<Values>;
   const mocksInitial = [
     {
       request: {

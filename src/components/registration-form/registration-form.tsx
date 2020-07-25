@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import { Box, Button, TextField, Typography } from "@material-ui/core";
 
-import { AuthType } from "../../types/AuthType";
+import { FormikType } from "../../types/FormikType";
 import { checkErrorByField } from "../../utils";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -20,11 +20,6 @@ const useStyles = makeStyles((theme: Theme) =>
       display: "flex",
       flexDirection: "column",
     },
-    buttonsField: {
-      display: "flex",
-      flexDirection: "row",
-      alignItems: "center",
-    },
   })
 );
 
@@ -35,7 +30,7 @@ export interface Values {
   confirmPassword?: string | boolean;
 }
 
-export const RegistrationForm: React.FC<AuthType<Values>> = ({
+export const RegistrationForm: React.FC<FormikType<Values>> = ({
   handleSubmit,
   handleChange,
   values,

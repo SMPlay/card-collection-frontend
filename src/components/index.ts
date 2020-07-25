@@ -6,3 +6,4 @@ export { LoginForm } from "./login-form/login-form";
 export { RegistrationForm } from "./registration-form/registration-form";
 export { Loading } from "./loading/loading";
 export { ReceivedError } from "./recieved-error/received-error";
+export { ResetPasswordEmail } from "./reset-password/reset-password-email/reset-password-email";
