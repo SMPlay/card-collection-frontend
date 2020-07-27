@@ -12,6 +12,8 @@ import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
 
+import { UserAvatar } from "../user-avatar/user-avatar";
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -56,12 +58,14 @@ interface HeaderContentProps {
   isOpen: boolean;
   currentPage: string;
   handleDrawerOpen: () => void;
+  isAuth: boolean | undefined
 }
 
 export const HeaderContent: React.FC<HeaderContentProps> = ({
   isOpen,
   currentPage,
   handleDrawerOpen,
+  isAuth
 }) => {
   const classes = useStyles();
 
@@ -85,7 +89,8 @@ export const HeaderContent: React.FC<HeaderContentProps> = ({
         <Typography variant="h6" noWrap className={classes.title}>
           {currentPage}
         </Typography>
-        <Box>
+        {isAuth && <UserAvatar/>}
+        {!isAuth && <Box>
           <Button color="inherit">
             <Link className={classes.navLink} to="/login">Войти</Link>
           </Button>
@@ -94,6 +99,8 @@ export const HeaderContent: React.FC<HeaderContentProps> = ({
             <Link className={classes.navLink} to="/registration">Регистрация</Link>
           </Button>
         </Box>
+        }
+
       </Toolbar>
     </AppBar>
   );

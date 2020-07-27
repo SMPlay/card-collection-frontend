@@ -16,7 +16,7 @@ import {
 } from "../pages";
 import { Header } from "./header/header";
 
-interface AuthData {
+export interface AuthData {
   isAuth: boolean;
 }
 

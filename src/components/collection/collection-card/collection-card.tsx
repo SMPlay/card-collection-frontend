@@ -9,6 +9,9 @@ const useStyles = makeStyles((theme: Theme) =>
     metaText: {
       padding: "0 15px"
     },
+    card: {
+      height: 550,
+    }
   })
 );
 
@@ -30,7 +33,7 @@ export const CollectionCard: FC<CardType> = ({imageUrl, rarity, name, number, ro
         </Typography>
       </CardContent>
     </CardActionArea>
-    <CardActionArea className={styles.metaText}>
+    <CardActionArea className={styles.metaText + " " + styles.card}>
       <Typography variant="h6" component="h5">
         Номер карты: {number}
       </Typography>

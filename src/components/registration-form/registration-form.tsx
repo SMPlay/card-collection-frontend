@@ -57,10 +57,8 @@ export const RegistrationForm: React.FC<FormikType<Values>> = ({
           placeholder="Введите логин"
           variant="outlined"
           error={
-            errors.login ||
-            status?.error === "Такой пользователь уже существует"
-              ? true
-              : false
+            !!(errors.login ||
+              status?.error === "Такой пользователь уже существует")
           }
           helperText={
             checkErrorByField("regLogin", status?.error)
@@ -78,10 +76,8 @@ export const RegistrationForm: React.FC<FormikType<Values>> = ({
           placeholder="Введите email"
           variant="outlined"
           error={
-            errors.email ||
-            status?.error === "Пользователь с такие email уже существует"
-              ? true
-              : false
+            !!(errors.email ||
+              status?.error === "Пользователь с такие email уже существует")
           }
           helperText={
             checkErrorByField("regEmail", status?.error)
@@ -99,7 +95,7 @@ export const RegistrationForm: React.FC<FormikType<Values>> = ({
           placeholder="Введите пароль"
           variant="outlined"
           type="password"
-          error={errors.password ? true : false}
+          error={!!errors.password}
           helperText={errors.password}
           required
           disabled={status?.loading}
@@ -112,7 +108,7 @@ export const RegistrationForm: React.FC<FormikType<Values>> = ({
           placeholder="Введите пароль снова"
           variant="outlined"
           type="password"
-          error={errors.confirmPassword ? true : false}
+          error={!!errors.confirmPassword}
           helperText={errors.confirmPassword}
           required
           disabled={status?.loading}
