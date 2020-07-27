@@ -12,7 +12,8 @@ import {
   ConfirmPage,
   ConfirmSuccessPage,
   ResetPassword,
-  NewPasswordPage
+  NewPasswordPage,
+  ProfilePage
 } from "../pages";
 import { Header } from "./header/header";
 
@@ -29,8 +30,14 @@ const NonAuthPaths = () => (
   </>
 );
 
+const AuthPaths = () => (
+  <>
+    <Route exact path="/profile/:id" component={ProfilePage}/>
+  </>
+)
+
 const App: React.FC = () => {
-  const dataClient = useQuery<AuthData>(IS_AUTH);
+  const { data } = useQuery<AuthData>(IS_AUTH);
 
   const [setRefreshToken] = useMutation(GET_REFRESH_TOKEN);
   useEffect( () => {
@@ -60,10 +67,11 @@ const App: React.FC = () => {
         <Route exact path="/confirm" component={ConfirmPage}/>
         <Route exact path="/confirm/:token" component={ConfirmSuccessPage}/>
         {
-          !dataClient?.data?.isAuth
+          !data?.isAuth
             ? <NonAuthPaths/>
-            : <Redirect to="/"/>
+            : <AuthPaths/>
         }
+        <Redirect to="/"/> {/* сделать 404 */}
       </Switch>
     </Router>
   );

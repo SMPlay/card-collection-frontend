@@ -7,3 +7,5 @@ export { REGISTRATION_QUERY } from "./registration-query";
 export { CONFIRM_USER } from "./confirm-user";
 export { RESET_PASSWORD_QUERY } from "./reset-password-query";
 export { SET_NEW_PASSWORD } from "./set-new-password";
+export { GET_USER } from "./get-user";
+export { SET_USER_AVATAR } from "./set-user-avatar";

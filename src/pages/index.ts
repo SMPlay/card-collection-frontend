@@ -6,3 +6,4 @@ export { ConfirmSuccessPage } from "./confirm-success-page";
 export { ConfirmPage } from "./confirm-page";
 export { ResetPassword } from "./reset-password-page";
 export { NewPasswordPage } from "./new-password-page";
+export { ProfilePage } from "./profile-page";
